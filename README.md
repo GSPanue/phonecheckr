@@ -13,8 +13,8 @@ A single-page application for comparing mobile phone deals
 
 ## Scripts
 
-- Generate the bundle: ``npm run bundle:build``
-- Analyse the bundle: ``npm run bundle:analyse``
+- Generate the frontend bundle: ``npm run bundle:build``
+- Analyse the frontend bundle: ``npm run bundle:analyse``
 
 ## Version
 
