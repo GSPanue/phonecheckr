@@ -1,0 +1,13 @@
+{
+  "name": "mobile-phone-checker",
+  "description": "A single-page application for comparing mobile phone deals",
+  "author": "Gurdev S. Panue",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm run install:frontend",
+    "install:frontend": "cd frontend && npm install",
+    "bundle:dev": "cd frontend && npm run start",
+    "bundle:build": "cd frontend && npm run build",
+    "bundle:analyse": "cd frontend && npm run analyse"
+  }
+}
