@@ -22,12 +22,6 @@ module.exports = {
         'babel-loader',
         'eslint-loader'
       ]
-    }, {
-      test: /\.css$/,
-      loader: [
-        'style-loader',
-        'css-loader'
-      ]
     }]
   },
   plugins: [
