@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Header from '../../components/Header';
+
 const Search = () => (
-  <div>
-    Search
-  </div>
+  <Header borderless />
 );
 
 export default Search;
