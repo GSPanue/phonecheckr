@@ -14,6 +14,9 @@ const palette = {
 const theme = {
   brand: {
     color: palette.shark
+  },
+  header: {
+    background: palette.white
   }
 };
 
