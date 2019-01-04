@@ -14,7 +14,8 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(root, 'dist'),
-    compress: true
+    compress: true,
+    historyApiFallback: true
   },
   module: {
     rules: [{
