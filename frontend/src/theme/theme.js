@@ -2,7 +2,7 @@
  * Color palette
  */
 const palette = {
-  mirage: '#171c24',
+  shark: '#272a2f',
   dodgerBlue: '#1e90ff',
   ghost: '#c2c7d1',
   white: '#ffffff'
@@ -13,7 +13,7 @@ const palette = {
  */
 const theme = {
   brand: {
-    color: palette.dodgerBlue
+    color: palette.shark
   }
 };
 
