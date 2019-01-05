@@ -1,15 +1,15 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
-import theme from './theme';
+import { material } from './theme';
 
 import Search from './screens/Search';
 import Results from './screens/Results';
 import FourOhFour from './screens/FourOhFour';
 
 const App = () => (
-  <ThemeProvider theme={theme}>
+  <MuiThemeProvider theme={material}>
     <Router>
       <Switch>
         <Route exact path="/" component={Search} />
@@ -17,7 +17,7 @@ const App = () => (
         <Route component={FourOhFour} />
       </Switch>
     </Router>
-  </ThemeProvider>
+  </MuiThemeProvider>
 );
 
 export default App;
