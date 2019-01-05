@@ -1,1 +1,1 @@
-export { default } from './theme';
+export { material } from './material';
