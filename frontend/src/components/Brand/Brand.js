@@ -1,18 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { StyledLink } from './styles';
+import Logo from '../Logo';
 
-const propTypes = {
-  children: PropTypes.string.isRequired
-};
-
-const Brand = ({ children }) => (
+const Brand = () => (
   <StyledLink to="/">
-    {children}
+    <Logo />
   </StyledLink>
 );
-
-Brand.propTypes = propTypes;
 
 export default Brand;
