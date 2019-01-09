@@ -1,4 +1,4 @@
-<h1 align="center">Mobile Phone Checker</h1>
+<h1 align="center">PhoneCheckr</h1>
 
 <div align="center">
 A single-page application for comparing mobile phone deals
@@ -6,7 +6,7 @@ A single-page application for comparing mobile phone deals
 
 ## Development
 
-1. Clone the repository: ``git clone https://github.com/GSPanue/mobile-phone-checker.git``
+1. Clone the repository: ``git clone https://github.com/GSPanue/phonecheckr.git``
 2. Install the dependencies: ``npm install``
 3. Initialise the local server: ``npm run bundle:dev``
 4. Go to: ``http://localhost:8080``
