@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import SvgIcon from '@material-ui/core/SvgIcon';
+const Wrapper = styled.div`
+  font-size: ${({ size }) => (size)};
+`;
 
-const StyledSvgIcon = styled(SvgIcon)`
-  && {
-    width: 138px;
-    height: 27px;
-    display: block;
-  }
+const StyledFont = styled.span`
+  font-weight: ${({ primary }) => ((primary) ? '700' : '300')};
+  color: #${({ primary }) => ((primary) ? 'F44F4F' : '313131')};
 `;
 
 export {
-  StyledSvgIcon
+  Wrapper,
+  StyledFont
 };
