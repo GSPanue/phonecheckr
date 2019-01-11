@@ -6,6 +6,7 @@ import { material } from './theme';
 
 import Search from './screens/Search';
 import Results from './screens/Results';
+import Product from './screens/Product';
 import FourOhFour from './screens/FourOhFour';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Search} />
         <Route path="/results" component={Results} />
+        <Route path="/product" component={Product} />
         <Route component={FourOhFour} />
       </Switch>
     </Router>
