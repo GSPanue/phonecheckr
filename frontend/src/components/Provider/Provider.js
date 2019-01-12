@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components';
 
-import { material, light } from './theme';
+import { material, light } from '../../theme';
 
 const propTypes = {
   children: PropTypes.element.isRequired
