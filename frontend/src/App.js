@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Provider from './Provider';
+import Provider from './components/Provider';
 
 import { Wrapper } from './styles';
 import Search from './screens/Search';
