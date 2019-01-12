@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, StyledFont } from './styles';
+import { Wrapper, StyledText } from './styles';
 
 const propTypes = {
   size: PropTypes.string
@@ -13,12 +13,12 @@ const defaultProps = {
 
 const Logo = (props) => (
   <Wrapper {...props}>
-    <StyledFont primary>
+    <StyledText primary>
       Price
-    </StyledFont>
-    <StyledFont>
+    </StyledText>
+    <StyledText>
       Checkr
-    </StyledFont>
+    </StyledText>
   </Wrapper>
 );
 
