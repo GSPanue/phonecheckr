@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { Wrapper, StyledText } from './styles';
 
 const propTypes = {
-  size: PropTypes.string
+  large: PropTypes.bool,
 };
 
 const defaultProps = {
-  size: '20px'
+  large: undefined,
 };
 
 const Logo = (props) => (
