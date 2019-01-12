@@ -4,12 +4,12 @@ html, body {
   background: #f8f8f8;
 }
 
-html, body, #app {
-  height: 100%;
-  width: 100%;
-}
-
 #app {
+  height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   font-family: 'Roboto', Arial, sans-serif;
 }
 
