@@ -11,12 +11,13 @@ const palette = {
  * Light theme
  */
 const light = {
-  background: palette.alabaster,
   logo: {
     primaryColor: palette.carnation,
     secondaryColor: palette.mineShaft,
     primaryWeight: '700',
-    secondaryWeight: '300'
+    secondaryWeight: '300',
+    large: '30px',
+    medium: '20px'
   }
 };
 
