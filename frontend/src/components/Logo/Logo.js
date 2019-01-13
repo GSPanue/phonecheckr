@@ -14,7 +14,7 @@ const defaultProps = {
 const Logo = (props) => (
   <Wrapper {...props}>
     <StyledText primary>
-      Price
+      Phone
     </StyledText>
     <StyledText>
       Checkr
