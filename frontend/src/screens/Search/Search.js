@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Wrapper, Content } from './styles';
-import Brand from '../../components/Brand';
+import Logo from '../../components/Logo';
 import SearchBar from '../../components/SearchBar';
 import Footer from '../../components/Footer';
 
 const Search = () => (
   <Wrapper>
     <Content>
-      <Brand large />
+      <Logo large />
       <SearchBar />
     </Content>
     <Footer />
