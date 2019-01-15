@@ -18,7 +18,7 @@ const light = {
     secondaryColor: palette.mineShaft,
     primaryWeight: '700',
     secondaryWeight: '300',
-    large: '30px',
+    large: '48px',
     medium: '20px'
   },
   input: {
@@ -28,6 +28,8 @@ const light = {
     fontSize: '13px'
   },
   searchBar: {
+    width: '337px',
+    height: '34px',
     primaryBackground: palette.white
   },
   icon: {
