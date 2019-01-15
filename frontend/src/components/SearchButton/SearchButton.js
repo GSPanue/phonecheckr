@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { default as Wrapper } from '@material-ui/core/IconButton';
 
-import { Icon } from './styles';
+import { Wrapper, Icon } from './styles';
 
 const propTypes = {
   onClick: PropTypes.func
