@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   padding: 0 4px 0 13px;
+  border-radius: 2px;
   background: ${({ theme: { searchBar } }) => (searchBar.primaryBackground)};
 `;
 
