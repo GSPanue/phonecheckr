@@ -10,7 +10,8 @@
     "object-curly-newline": ["error", { "ObjectPattern": { "minProperties": 4 } }],
     "brace-style": ["error", "stroustrup"],
     "max-len": ["warn", 120, 2, { "ignoreComments": true }],
-    "no-multiple-empty-lines": ["error", { "max": 1 }]
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "import/no-named-default": "off"
   },
   "env": {
     "browser": true
