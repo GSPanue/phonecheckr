@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const Wrapper = styled(IconButton)`
   && {
-    padding: 8px;
+    padding: 6px;
   }
 `;
 
