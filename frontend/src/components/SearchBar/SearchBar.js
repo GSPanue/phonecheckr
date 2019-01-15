@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import { Wrapper } from './styles';
-import Input from '../Input';
+import { Wrapper, StyledInput } from './styles';
 import SearchButton from '../SearchButton';
 
 class SearchBar extends Component {
@@ -26,7 +25,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Wrapper>
-        <Input placeholder="Search for product..." onChange={this.handleChange} />
+        <StyledInput placeholder="Search for product..." onChange={this.handleChange} />
         <SearchButton />
       </Wrapper>
     );
