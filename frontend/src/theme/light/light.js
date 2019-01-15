@@ -24,7 +24,7 @@ const light = {
   input: {
     primaryColor: palette.mineShaft,
     secondaryColor: palette.alto,
-    fontWeight: '500',
+    fontWeight: '400',
     fontSize: '13px'
   },
   searchBar: {
