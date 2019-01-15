@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   font-size: ${({ large, theme: { logo } }) => ((large) ? logo.large : logo.medium)};
+  user-select: none;
 `;
 
 const StyledText = styled.span`
