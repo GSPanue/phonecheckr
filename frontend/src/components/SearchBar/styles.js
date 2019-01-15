@@ -4,8 +4,8 @@ import Input from '../Input';
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 337px;
-  height: 34px;
+  max-width: ${({ theme: { searchBar } }) => (searchBar.width)};
+  height: ${({ theme: { searchBar } }) => (searchBar.height)};
   display: flex;
   align-items: center;
   padding: 0 5px 0 13px;
