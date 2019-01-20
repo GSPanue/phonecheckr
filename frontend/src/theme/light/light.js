@@ -29,7 +29,7 @@ const light = {
   },
   searchBar: {
     width: '544px',
-    height: '58px',
+    height: '52px',
     primaryBackground: palette.white
   },
   ripple: {
