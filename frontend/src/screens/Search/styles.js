@@ -15,7 +15,7 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  & > div {
+  & > * {
     margin: 15px 0;
   }
 `;
