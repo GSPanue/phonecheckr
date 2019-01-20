@@ -25,16 +25,16 @@ const light = {
     primaryColor: palette.mineShaft,
     secondaryColor: palette.alto,
     fontWeight: '400',
-    fontSize: '13px'
+    fontSize: '18px'
   },
   searchBar: {
-    width: '337px',
-    height: '34px',
+    width: '544px',
+    height: '58px',
     primaryBackground: palette.white
   },
   icon: {
     primaryColor: palette.carnation,
-    fontSize: '14px'
+    fontSize: '25px'
   }
 };
 
