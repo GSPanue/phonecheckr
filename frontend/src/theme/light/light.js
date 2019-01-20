@@ -32,6 +32,9 @@ const light = {
     height: '58px',
     primaryBackground: palette.white
   },
+  ripple: {
+    primaryColor: palette.carnation
+  },
   icon: {
     primaryColor: palette.carnation,
     fontSize: '25px'
