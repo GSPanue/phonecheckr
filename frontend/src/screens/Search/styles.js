@@ -14,6 +14,10 @@ const Content = styled.div`
   align-self: stretch;
   align-items: center;
   justify-content: center;
+
+  & > div {
+    margin: 15px 0;
+  }
 `;
 
 export {
