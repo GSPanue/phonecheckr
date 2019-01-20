@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding: 0 5px 0 13px;
   border-radius: 2px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.06);
   background: ${({ theme: { searchBar } }) => (searchBar.primaryBackground)};
 `;
 
