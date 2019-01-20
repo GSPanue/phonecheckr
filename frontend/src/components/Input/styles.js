@@ -12,7 +12,7 @@ const Wrapper = styled(InputBase)`
       input {
         &::placeholder {
           opacity: 1;
-          color: ${input.secondaryColor}
+          color: ${input.secondaryColor};
         }
       }
     `)}
