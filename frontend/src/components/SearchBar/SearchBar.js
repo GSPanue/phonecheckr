@@ -25,7 +25,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Wrapper>
-        <StyledInput placeholder="Search for product..." onChange={this.handleChange} />
+        <StyledInput placeholder="Search for product..." onChange={this.handleChange} autoFocus />
         <SearchButton />
       </Wrapper>
     );
