@@ -5,12 +5,14 @@ import { Wrapper } from './styles';
 
 const propTypes = {
   placeholder: PropTypes.string,
+  value: PropTypes.string,
   autoFocus: PropTypes.bool,
   onChange: PropTypes.func
 };
 
 const defaultProps = {
   placeholder: undefined,
+  value: undefined,
   autoFocus: false,
   onChange: undefined
 };
