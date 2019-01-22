@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Icon } from './styles';
+import { StyledSearchIcon } from './styles';
+import IconButton from '../IconButton';
 
 const propTypes = {
   onClick: PropTypes.func
@@ -12,9 +13,9 @@ const defaultProps = {
 };
 
 const SearchButton = (props) => (
-  <Wrapper {...props}>
-    <Icon />
-  </Wrapper>
+  <IconButton {...props}>
+    <StyledSearchIcon />
+  </IconButton>
 );
 
 SearchButton.propTypes = propTypes;
