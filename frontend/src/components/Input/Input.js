@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Wrapper } from './styles';
@@ -17,9 +17,9 @@ const defaultProps = {
   onChange: undefined
 };
 
-const Input = (props) => (
-  <Wrapper {...props} />
-);
+const Input = forwardRef((props, ref) => (
+  <Wrapper {...props} inputRef={ref} />
+));
 
 Input.propTypes = propTypes;
 Input.defaultProps = defaultProps;
