@@ -13,6 +13,9 @@ const palette = {
  * Light theme
  */
 const light = {
+  text: {
+    bold: '700'
+  },
   logo: {
     primaryColor: palette.carnation,
     secondaryColor: palette.mineShaft,
