@@ -10,9 +10,12 @@ import { StyledText } from './styles';
 /**
  * Calculates the part of the label to highlight based on the query and breaks the label into parts.
  *
+ * @param {string} label - The label.
+ * @param {string} query - The query.
+ *
  * @returns {object}
  */
-const getParts = ({ label, query }) => {
+const getParts = (label, query) => {
   const matches = match(label, query);
   const parts = parse(label, matches);
 
@@ -23,6 +26,8 @@ const getParts = ({ label, query }) => {
 
 /**
  * Wraps each part of the label in a StyledText component.
+ *
+ * @param {objects} parts - The parts of a label.
  *
  * @returns {array}
  */
@@ -45,16 +50,15 @@ const renderChildren = (parts) => (
 
 const propTypes = {
   label: PropTypes.string.isRequired,
-  query: PropTypes.string.isRequired,
-  isHighlighted: PropTypes.bool.isRequired
+  query: PropTypes.string.isRequired
 };
 
-const SuggestionItem = ({ isHighlighted, ...rest }) => {
-  const parts = getParts(rest);
+const SuggestionItem = ({ label, query }) => {
+  const parts = getParts(label, query);
   const children = renderChildren(parts);
 
   return (
-    <MenuItem selected={isHighlighted} component="div">
+    <MenuItem component="div">
       <div>
         {children}
       </div>
