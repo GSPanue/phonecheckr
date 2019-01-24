@@ -11,7 +11,8 @@
     "brace-style": ["error", "stroustrup"],
     "max-len": ["warn", 120, 2, { "ignoreComments": true }],
     "no-multiple-empty-lines": ["error", { "max": 1 }],
-    "import/no-named-default": "off"
+    "import/no-named-default": "off",
+    "react/forbid-prop-types": "off"
   },
   "env": {
     "browser": true
