@@ -119,9 +119,10 @@ class SearchBar extends Component {
    */
   navigateToResults() {
     const { history } = this.props;
-    const { value: query } = this.state;
+    const { value } = this.state;
 
-    const shouldNavigate = (query.trim().length > 0);
+    const query = value.trim();
+    const shouldNavigate = (query.length > 0);
 
     if (shouldNavigate) {
       history.push({
