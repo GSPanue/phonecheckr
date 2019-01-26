@@ -41,6 +41,10 @@ const light = {
   icon: {
     primaryColor: palette.carnation,
     fontSize: '25px'
+  },
+  suggestionItem: {
+    height: '14px',
+    fontSize: '16px'
   }
 };
 
