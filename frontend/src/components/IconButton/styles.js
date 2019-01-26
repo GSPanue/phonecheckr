@@ -7,10 +7,8 @@ const Wrapper = styled(IconButton)`
     padding: 6px;
 
     ${({ theme: { ripple } }) => (`
-      color: ${ripple.primaryColor};
-
       &:hover {
-        background-color: ${ripple.primaryColor}17;
+        background-color: ${ripple.primaryColor}30;
       }
     `)}
   }
