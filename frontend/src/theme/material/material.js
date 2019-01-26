@@ -13,6 +13,13 @@ const material = {
       main: '#272a2f'
     }
   },
+  overrides: {
+    MuiTouchRipple: {
+      ripple: {
+        color: '#f44f4f'
+      }
+    }
+  },
   typography: {
     useNextVariants: true
   }
