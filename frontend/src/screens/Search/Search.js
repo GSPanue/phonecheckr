@@ -12,7 +12,7 @@ const Search = () => (
       <Link to="/">
         <Logo large />
       </Link>
-      <SearchBar />
+      <SearchBar autosuggest />
     </Content>
     <Footer />
   </Wrapper>
