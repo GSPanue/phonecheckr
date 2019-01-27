@@ -1,168 +1,99 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Autosuggest from 'react-autosuggest';
-
-import {
-  getSuggestions,
-  getSuggestionValue,
-  renderInputComponent,
-  renderSuggestionsContainer,
-  renderSuggestion
-} from './helpers';
 
 import { Wrapper } from './styles';
+import SearchInput from '../SearchInput';
 import SearchButton from '../SearchButton';
 
 const propTypes = {
-  history: PropTypes.object.isRequired
+  value: PropTypes.string.isRequired,
+  submitted: PropTypes.bool.isRequired,
+  autosuggest: PropTypes.bool,
+  history: PropTypes.object.isRequired,
+  revokeSubmitQuery: PropTypes.func.isRequired,
+  clearQuery: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  autosuggest: false
 };
 
 class SearchBar extends Component {
+  /**
+   * Indicates whether the results screen should be navigated to.
+   *
+   * @param {string} - The query.
+   *
+   * @returns {boolean}
+   */
+  static shouldNavigateToResults(query) {
+    return (
+      query.length > 0
+    );
+  }
+
   constructor(props) {
     super(props);
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-    this.handleSuggestionsFetchRequested = this.handleSuggestionsFetchRequested.bind(this);
-    this.handleSuggestionsClearRequested = this.handleSuggestionsClearRequested.bind(this);
-
-    this.state = {
-      value: '',
-      suggestions: []
-    };
+    this.navigate = this.navigate.bind(this);
   }
 
-  /**
-   * Navigates to the results screen.
-   *
-   * @returns {void}
-   */
-  handleClick() {
-    this.navigateToResults();
+  shouldComponentUpdate({ submitted }) {
+    return (
+      submitted
+    );
   }
 
-  /**
-   * Sets the value property in state with the new value of the input field
-   * and will navigate to the results screen if a suggestion is clicked.
-   *
-   * @param {object} event - The event.
-   * @param {object} autosuggestEvent - The autosuggest event.
-   * @param {string} autosuggestEvent.newValue - The new value of the input field.
-   * @param {string} autosuggestEvent.method - The method used to make the change.
-   *
-   * @returns {void}
-   */
-  handleChange(event, { newValue: value, method }) {
-    const hasClickedSuggestion = (method === 'click');
+  componentDidUpdate() {
+    const { submitted } = this.props;
 
-    this.setState({
-      value
-    }, () => {
-      if (hasClickedSuggestion) {
-        this.navigateToResults();
-      }
-    });
-  }
-
-  /**
-   * Navigates to the results screen when the enter key has been pressed.
-   *
-   * @param {object} event - The event.
-   * @param {string} event.key - The key that triggered the event.
-   *
-   * @returns {void}
-   */
-  handleKeyPress({ key }) {
-    const hasPressedEnter = (key === 'Enter');
-
-    if (hasPressedEnter) {
-      this.navigateToResults();
+    if (submitted) {
+      this.navigate();
     }
   }
 
   /**
-   * Sets the suggestions property in state with an array containing suggestions.
-   *
-   * @param {object} autosuggestEvent - The autosuggest event.
-   * @param {string} autosuggestEvent.value - The value of the input field.
+   * Navigates to the results screen when a non-empty query has been submitted.
    *
    * @returns {void}
    */
-  handleSuggestionsFetchRequested({ value }) {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  }
-
-  /**
-   * Sets the suggestions property in state with an empty array.
-   *
-   * @returns {void}
-   */
-  handleSuggestionsClearRequested() {
-    const { suggestions } = this.state;
-
-    const shouldClearSuggestions = (suggestions.length > 0);
-
-    if (shouldClearSuggestions) {
-      this.setState({
-        suggestions: []
-      });
-    }
-  }
-
-  /**
-   * Navigates to the results screen if a query exists.
-   *
-   * @returns {void}
-   */
-  navigateToResults() {
-    const { history } = this.props;
-    const { value } = this.state;
+  navigate() {
+    const {
+      value,
+      history,
+      revokeSubmitQuery,
+      clearQuery
+    } = this.props;
 
     const query = value.trim();
-    const shouldNavigate = (query.length > 0);
 
-    if (shouldNavigate) {
+    const shouldNavigateToResults = SearchBar.shouldNavigateToResults(query);
+
+    if (shouldNavigateToResults) {
       history.push({
         pathname: '/results',
         search: `q=${query}`
       });
+
+      clearQuery();
     }
+
+    revokeSubmitQuery();
   }
 
   render() {
-    const { value, suggestions } = this.state;
-
-    const inputProps = {
-      placeholder: 'Search for product...',
-      value,
-      onChange: this.handleChange,
-      onKeyPress: this.handleKeyPress,
-      autoFocus: true
-    };
-
-    const autosuggestProps = {
-      suggestions,
-      getSuggestionValue,
-      renderSuggestionsContainer,
-      renderSuggestion,
-      renderInputComponent,
-      inputProps,
-      onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested,
-      onSuggestionsClearRequested: this.handleSuggestionsClearRequested
-    };
+    const { autosuggest } = this.props;
 
     return (
       <Wrapper>
-        <Autosuggest {...autosuggestProps} />
-        <SearchButton onClick={this.handleClick} />
+        <SearchInput autosuggest={autosuggest} />
+        <SearchButton />
       </Wrapper>
     );
   }
 }
 
 SearchBar.propTypes = propTypes;
+SearchBar.defaultProps = defaultProps;
 
 export default SearchBar;
