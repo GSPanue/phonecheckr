@@ -5,20 +5,15 @@ import { StyledSearchIcon } from './styles';
 import IconButton from '../IconButton';
 
 const propTypes = {
-  onClick: PropTypes.func
+  submitQuery: PropTypes.func.isRequired
 };
 
-const defaultProps = {
-  onClick: undefined
-};
-
-const SearchButton = (props) => (
-  <IconButton {...props}>
+const SearchButton = ({ submitQuery, ...rest }) => (
+  <IconButton {...rest} onClick={submitQuery}>
     <StyledSearchIcon />
   </IconButton>
 );
 
 SearchButton.propTypes = propTypes;
-SearchButton.defaultProps = defaultProps;
 
 export default SearchButton;
