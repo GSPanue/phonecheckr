@@ -1,5 +1,8 @@
 import {
-  UPDATE_QUERY
+  UPDATE_QUERY,
+  SUBMIT_QUERY,
+  REVOKE_SUBMIT_QUERY,
+  CLEAR_QUERY
 } from '../../constants';
 
 const updateQuery = (query) => ({
@@ -7,6 +10,21 @@ const updateQuery = (query) => ({
   payload: query
 });
 
+const submitQuery = () => ({
+  type: SUBMIT_QUERY
+});
+
+const revokeSubmitQuery = () => ({
+  type: REVOKE_SUBMIT_QUERY
+});
+
+const clearQuery = () => ({
+  type: CLEAR_QUERY
+});
+
 export {
-  updateQuery
+  updateQuery,
+  submitQuery,
+  revokeSubmitQuery,
+  clearQuery
 };
