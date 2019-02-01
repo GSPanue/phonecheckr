@@ -12,6 +12,7 @@ import {
 import { StyledInput } from './styles';
 
 const propTypes = {
+  autoFocus: PropTypes.bool,
   value: PropTypes.string.isRequired,
   suggestions: PropTypes.array,
   autosuggest: PropTypes.bool,
@@ -22,6 +23,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  autoFocus: false,
   suggestions: undefined,
   autosuggest: false,
   fetchSuggestions: undefined,
@@ -117,14 +119,19 @@ class SearchInput extends Component {
   }
 
   render() {
-    const { autosuggest, value, suggestions } = this.props;
+    const {
+      autoFocus,
+      autosuggest,
+      value,
+      suggestions
+    } = this.props;
 
     const inputProps = {
       placeholder: 'Search for product...',
       value,
       onChange: this.handleChange,
       onKeyPress: this.handleKeyPress,
-      autoFocus: true
+      autoFocus
     };
 
     if (autosuggest) {

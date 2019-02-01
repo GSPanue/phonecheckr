@@ -6,6 +6,8 @@ import SearchInput from '../SearchInput';
 import SearchButton from '../SearchButton';
 
 const propTypes = {
+  autoFocus: PropTypes.bool,
+  className: PropTypes.string,
   value: PropTypes.string.isRequired,
   submitted: PropTypes.bool.isRequired,
   autosuggest: PropTypes.bool,
@@ -15,6 +17,8 @@ const propTypes = {
 };
 
 const defaultProps = {
+  autoFocus: false,
+  className: undefined,
   autosuggest: false
 };
 
@@ -82,11 +86,16 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { autosuggest } = this.props;
+    const { autoFocus, className, autosuggest } = this.props;
+
+    const inputProps = {
+      autoFocus,
+      autosuggest
+    };
 
     return (
-      <Wrapper>
-        <SearchInput autosuggest={autosuggest} />
+      <Wrapper className={className}>
+        <SearchInput {...inputProps} />
         <SearchButton />
       </Wrapper>
     );
