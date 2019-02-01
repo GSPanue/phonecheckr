@@ -1,17 +1,32 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
-  ${({ fixed }) => (fixed) && `
-    width: 100%;
-    position: fixed;
-  `}
-  ${({ borderless }) => (!borderless) && `
-    border-bottom: 1px solid rgba(0,0,0,.05);
-  `}
-  background: ${({ theme }) => (theme.header.background)};
-  z-index: 5;
+import SearchBar from '../SearchBar';
+
+const Wrapper = styled.header`
+  position: sticky;
+  height: 72px;
+  width: 100%;
+  top: 0;
+  left: auto;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: ${({ theme: { header } }) => (header.primaryBackground)};
+`;
+
+const StyledSearchBar = styled(SearchBar)`
+  height: 42px;
+  max-width: 344px;
+  box-shadow: none;
+  margin-left: 34px;
+
+  input {
+    font-size: 16px;
+  }
 `;
 
 export {
-  Wrapper
+  Wrapper,
+  StyledSearchBar
 };

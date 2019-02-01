@@ -1,31 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import { Wrapper } from './styles';
-import Container from '../Container';
-import NavBar from '../NavBar';
+import { Wrapper, StyledSearchBar } from './styles';
+import Link from '../Link';
+import Logo from '../Logo';
 
-const propTypes = {
-  fixed: PropTypes.bool,
-  borderless: PropTypes.bool
-};
-
-const defaultProps = {
-  fixed: false,
-  borderless: false
-};
-
-const Header = (props) => (
-  <Wrapper {...props}>
-    <Container>
-      <NavBar
-        brandName="PhoneCheckr"
-      />
-    </Container>
+const Header = () => (
+  <Wrapper>
+    <Link to="/">
+      <Logo />
+    </Link>
+    <StyledSearchBar />
   </Wrapper>
 );
-
-Header.propTypes = propTypes;
-Header.defaultProps = defaultProps;
 
 export default Header;
