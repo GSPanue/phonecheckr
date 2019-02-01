@@ -13,6 +13,9 @@ const palette = {
  * Light theme
  */
 const light = {
+  header: {
+    primaryBackground: palette.alabaster
+  },
   text: {
     bold: '700'
   },
@@ -22,7 +25,7 @@ const light = {
     primaryWeight: '700',
     secondaryWeight: '300',
     large: '48px',
-    medium: '20px'
+    medium: '24px'
   },
   input: {
     primaryColor: palette.mineShaft,
