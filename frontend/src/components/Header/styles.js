@@ -24,6 +24,10 @@ const StyledSearchBar = styled(SearchBar)`
   input {
     font-size: 16px;
   }
+
+  && svg {
+    font-size: 22px;
+  }
 `;
 
 export {
