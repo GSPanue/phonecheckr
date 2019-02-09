@@ -17,7 +17,10 @@ const light = {
     primaryBackground: palette.alabaster
   },
   text: {
-    bold: '700'
+    primaryColor: palette.mineShaft,
+    secondaryColor: palette.carnation,
+    bold: '700',
+    medium: '500'
   },
   logo: {
     primaryColor: palette.carnation,
