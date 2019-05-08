@@ -12,8 +12,9 @@ const Content = styled.div`
   align-self: stretch;
 `;
 
-const Heading = styled.span`
-  font-size: 26px;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 
   ${({ theme: { text } }) => (`
     font-weight: ${text.medium};
@@ -21,13 +22,27 @@ const Heading = styled.span`
   `)}
 `;
 
-const Query = styled(Heading)`
+const QueryContainer = styled(TextContainer)`
+  font-size: 26px;
+`;
+
+const Query = styled.span`
   color: ${({ theme: { text } }) => (text.secondaryColor)};
+`;
+
+const ProductCountContainer = styled(TextContainer)`
+  font-size: 20px;
+`;
+
+const ProductCount = styled.span`
+  color: grey;
 `;
 
 export {
   Wrapper,
   Content,
-  Heading,
-  Query
+  QueryContainer,
+  Query,
+  ProductCountContainer,
+  ProductCount
 };

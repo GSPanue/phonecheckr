@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 
 import { getQuery } from '../../helpers';
 
-import { Wrapper, Content, Heading, Query } from './styles';
+import {
+  Wrapper,
+  Content,
+  QueryContainer,
+  Query,
+  ProductCountContainer,
+  ProductCount
+} from './styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -18,14 +25,20 @@ const Results = ({ location }) => {
     <Wrapper>
       <Header />
       <Content>
-        <Heading>
+        <QueryContainer>
           You searched for&nbsp;
           <Query>
             &quot;
             {query}
             &quot;
           </Query>
-        </Heading>
+        </QueryContainer>
+        <ProductCountContainer>
+          Products&nbsp;
+          <ProductCount>
+            (100+)
+          </ProductCount>
+        </ProductCountContainer>
       </Content>
       <Footer />
     </Wrapper>
