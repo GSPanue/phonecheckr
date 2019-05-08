@@ -35,7 +35,7 @@ const ProductCountContainer = styled(TextContainer)`
 `;
 
 const ProductCount = styled.span`
-  color: grey;
+  color: ${({ theme: { text } }) => (text.secondaryColor)}
 `;
 
 export {
