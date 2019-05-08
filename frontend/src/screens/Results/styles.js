@@ -31,7 +31,8 @@ const Query = styled.span`
 `;
 
 const ProductCountContainer = styled(TextContainer)`
-  font-size: 20px;
+  margin-top: 5px;
+  font-size: 16px;
 `;
 
 const ProductCount = styled.span`
