@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 
@@ -30,25 +30,18 @@ const defaultProps = {
   clearSuggestions: undefined
 };
 
-class SearchInput extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-
-    if (props.autosuggest) {
-      this.handleSuggestionsFetchRequested = this.handleSuggestionsFetchRequested.bind(this);
-      this.handleSuggestionsClearRequested = this.handleSuggestionsClearRequested.bind(this);
-    }
-    else {
-      this.handleSuggestionsFetchRequested = undefined;
-      this.handleSuggestionsClearRequested = undefined;
-    }
-  }
-
+const SearchInput = ({
+  autoFocus,
+  autosuggest,
+  value,
+  suggestions,
+  fetchSuggestions,
+  clearSuggestions,
+  updateQuery,
+  submitQuery
+}) => {
   /**
-   * Dispatches an action to update the query value, and will submit
+   * Dispatches an action to update the query value and will submit
    * the query if autosuggest is enabled and a suggestion is clicked.
    *
    * @param {object} event - The event.
@@ -56,9 +49,7 @@ class SearchInput extends Component {
    *
    * @returns {void}
    */
-  handleChange(event, autosuggestEvent) {
-    const { autosuggest, updateQuery, submitQuery } = this.props;
-
+  const handleChange = useCallback((event, autosuggestEvent) => {
     if (autosuggest) {
       const { newValue, method } = autosuggestEvent;
       const hasClickedSuggestion = (method === 'click');
@@ -70,11 +61,11 @@ class SearchInput extends Component {
       }
     }
     else {
-      const { target: { value } } = event;
+      const { target: { value: newValue } } = event;
 
-      updateQuery(value);
+      updateQuery(newValue);
     }
-  }
+  }, []);
 
   /**
    * Submits the query when the enter key is pressed.
@@ -84,14 +75,13 @@ class SearchInput extends Component {
    *
    * @returns {void}
    */
-  handleKeyPress({ key }) {
-    const { submitQuery } = this.props;
+  const handleKeyPress = useCallback(({ key }) => {
     const hasPressedEnter = (key === 'Enter');
 
     if (hasPressedEnter) {
       submitQuery();
     }
-  }
+  }, []);
 
   /**
    * Dispatches an action to fetch suggestions.
@@ -101,65 +91,52 @@ class SearchInput extends Component {
    *
    * @returns {void}
    */
-  handleSuggestionsFetchRequested({ value }) {
-    const { fetchSuggestions } = this.props;
-
-    fetchSuggestions(value);
-  }
+  const handleSuggestionsFetchRequested = useCallback(({ value: newValue }) => {
+    fetchSuggestions(newValue);
+  }, []);
 
   /**
    * Dispatches an action to clear the suggestions.
    *
    * @returns {void}
    */
-  handleSuggestionsClearRequested() {
-    const { clearSuggestions } = this.props;
-
+  const handleSuggestionsClearRequested = useCallback(() => {
     clearSuggestions();
-  }
+  }, []);
 
-  render() {
-    const {
-      autoFocus,
-      autosuggest,
-      value,
-      suggestions
-    } = this.props;
+  const inputProps = {
+    placeholder: 'Search for product...',
+    value,
+    onChange: handleChange,
+    onKeyPress: handleKeyPress,
+    autoFocus
+  };
 
-    const inputProps = {
-      placeholder: 'Search for product...',
-      value,
-      onChange: this.handleChange,
-      onKeyPress: this.handleKeyPress,
-      autoFocus
+  if (autosuggest) {
+    const autosuggestProps = {
+      suggestions,
+      getSuggestionValue,
+      renderSuggestionsContainer,
+      renderSuggestion,
+      renderInputComponent,
+      inputProps,
+      onSuggestionsFetchRequested: handleSuggestionsFetchRequested,
+      onSuggestionsClearRequested: handleSuggestionsClearRequested
     };
 
-    if (autosuggest) {
-      const autosuggestProps = {
-        suggestions,
-        getSuggestionValue,
-        renderSuggestionsContainer,
-        renderSuggestion,
-        renderInputComponent,
-        inputProps,
-        onSuggestionsFetchRequested: this.handleSuggestionsFetchRequested,
-        onSuggestionsClearRequested: this.handleSuggestionsClearRequested
-      };
-
-      return (
-        <Autosuggest {...autosuggestProps} />
-      );
-    }
-
     return (
-      <StyledInput
-        onChange={this.handleChange}
-        onKeyPress={this.handleKeyPress}
-        {...inputProps}
-      />
+      <Autosuggest {...autosuggestProps} />
     );
   }
-}
+
+  return (
+    <StyledInput
+      onChange={handleChange}
+      onKeyPress={handleKeyPress}
+      {...inputProps}
+    />
+  );
+};
 
 SearchInput.propTypes = propTypes;
 SearchInput.defaultProps = defaultProps;

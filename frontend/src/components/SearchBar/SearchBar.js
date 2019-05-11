@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+
+import { navigate } from './helpers';
 
 import { Wrapper } from './styles';
 import SearchInput from '../SearchInput';
@@ -22,85 +24,31 @@ const defaultProps = {
   autosuggest: false
 };
 
-class SearchBar extends Component {
-  /**
-   * Indicates whether the results screen should be navigated to.
-   *
-   * @param {string} - The query.
-   *
-   * @returns {boolean}
-   */
-  static shouldNavigateToResults(query) {
-    return (
-      query.length > 0
-    );
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.navigate = this.navigate.bind(this);
-  }
-
-  shouldComponentUpdate({ submitted }) {
-    return (
-      submitted
-    );
-  }
-
-  componentDidUpdate() {
-    const { submitted } = this.props;
-
+const SearchBar = ({
+  autoFocus,
+  className,
+  autosuggest,
+  submitted,
+  ...rest
+}) => {
+  useEffect(() => {
     if (submitted) {
-      this.navigate();
+      navigate(rest);
     }
-  }
+  }, [submitted]);
 
-  /**
-   * Navigates to the results screen when a non-empty query has been submitted.
-   *
-   * @returns {void}
-   */
-  navigate() {
-    const {
-      value,
-      history,
-      revokeSubmitQuery,
-      clearQuery
-    } = this.props;
+  const inputProps = {
+    autoFocus,
+    autosuggest
+  };
 
-    const query = value.trim();
-
-    const shouldNavigateToResults = SearchBar.shouldNavigateToResults(query);
-
-    if (shouldNavigateToResults) {
-      history.push({
-        pathname: '/results',
-        search: `q=${query}`
-      });
-
-      clearQuery();
-    }
-
-    revokeSubmitQuery();
-  }
-
-  render() {
-    const { autoFocus, className, autosuggest } = this.props;
-
-    const inputProps = {
-      autoFocus,
-      autosuggest
-    };
-
-    return (
-      <Wrapper className={className}>
-        <SearchInput {...inputProps} />
-        <SearchButton />
-      </Wrapper>
-    );
-  }
-}
+  return (
+    <Wrapper className={className}>
+      <SearchInput {...inputProps} />
+      <SearchButton />
+    </Wrapper>
+  );
+};
 
 SearchBar.propTypes = propTypes;
 SearchBar.defaultProps = defaultProps;
