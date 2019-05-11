@@ -4,7 +4,6 @@ import { Wrapper, Content } from './styles';
 import Link from '../../components/Link';
 import Logo from '../../components/Logo';
 import SearchBar from '../../components/SearchBar';
-import Footer from '../../components/Footer';
 
 const Search = () => (
   <Wrapper>
@@ -14,7 +13,6 @@ const Search = () => (
       </Link>
       <SearchBar autoFocus autosuggest />
     </Content>
-    <Footer />
   </Wrapper>
 );
 
