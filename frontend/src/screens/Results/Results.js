@@ -12,7 +12,6 @@ import {
   ProductCount
 } from './styles';
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 
 const propTypes = {
   location: PropTypes.object.isRequired
@@ -40,7 +39,6 @@ const Results = ({ location }) => {
           </ProductCount>
         </ProductCountContainer>
       </Content>
-      <Footer />
     </Wrapper>
   );
 };
