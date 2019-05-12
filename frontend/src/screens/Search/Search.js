@@ -9,7 +9,7 @@ const Search = () => (
     <Link to="/">
       <Logo large />
     </Link>
-    <StyledSearchBar autoFocus autosuggest />
+    <StyledSearchBar primary autoFocus autosuggest />
   </Wrapper>
 );
 
