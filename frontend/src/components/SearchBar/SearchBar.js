@@ -8,6 +8,7 @@ import SearchInput from '../SearchInput';
 import SearchButton from '../SearchButton';
 
 const propTypes = {
+  primary: PropTypes.bool,
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
   value: PropTypes.string.isRequired,
@@ -19,12 +20,14 @@ const propTypes = {
 };
 
 const defaultProps = {
+  primary: false,
   autoFocus: false,
   className: undefined,
   autosuggest: false
 };
 
 const SearchBar = ({
+  primary,
   autoFocus,
   className,
   autosuggest,
@@ -37,13 +40,18 @@ const SearchBar = ({
     }
   }, [submitted]);
 
+  const wrapperProps = {
+    primary,
+    className
+  };
+
   const inputProps = {
     autoFocus,
     autosuggest
   };
 
   return (
-    <Wrapper className={className}>
+    <Wrapper {...wrapperProps}>
       <SearchInput {...inputProps} />
       <SearchButton />
     </Wrapper>
