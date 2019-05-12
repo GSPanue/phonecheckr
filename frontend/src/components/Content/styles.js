@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  flex: 1;
+  align-self: stretch;
   margin-top: 57px;
 
   @media (min-width: 600px) {
