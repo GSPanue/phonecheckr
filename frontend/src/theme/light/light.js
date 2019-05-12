@@ -14,7 +14,7 @@ const palette = {
  */
 const light = {
   header: {
-    primaryBackground: palette.alabaster
+    primaryBorderColor: palette.alabaster
   },
   text: {
     primaryColor: palette.mineShaft,
