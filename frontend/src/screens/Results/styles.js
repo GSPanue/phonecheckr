@@ -7,11 +7,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Content = styled.div`
-  flex: 1;
-  align-self: stretch;
-`;
-
 const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -41,7 +36,6 @@ const ProductCount = styled.span`
 
 export {
   Wrapper,
-  Content,
   QueryContainer,
   Query,
   ProductCountContainer,
