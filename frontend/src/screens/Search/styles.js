@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import SearchBar from '../../components/SearchBar';
+
 const Wrapper = styled.div`
   display: flex;
   flex: 1;
@@ -8,6 +10,11 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
+const StyledSearchBar = styled(SearchBar)`
+  margin-top: 20px;
+`;
+
 export {
-  Wrapper
+  Wrapper,
+  StyledSearchBar
 };
