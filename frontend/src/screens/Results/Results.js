@@ -5,13 +5,13 @@ import { getQuery } from '../../helpers';
 
 import {
   Wrapper,
-  Content,
   QueryContainer,
   Query,
   ProductCountContainer,
   ProductCount
 } from './styles';
 import Header from '../../components/Header';
+import Content from '../../components/Content';
 
 const propTypes = {
   location: PropTypes.object.isRequired
