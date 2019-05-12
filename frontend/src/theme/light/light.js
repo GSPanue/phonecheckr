@@ -39,7 +39,8 @@ const light = {
   searchBar: {
     width: '544px',
     height: '52px',
-    primaryBackground: palette.white
+    primaryBackground: palette.white,
+    secondaryBackground: palette.alabaster
   },
   ripple: {
     primaryColor: palette.carnation
