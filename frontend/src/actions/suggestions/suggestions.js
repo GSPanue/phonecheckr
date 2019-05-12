@@ -59,7 +59,7 @@ const fetchSuggestions = (value) => {
 
   return ({
     type: FETCH_SUGGESTIONS,
-    payload: suggestions
+    payload: suggestions.slice(0, 5)
   });
 };
 
