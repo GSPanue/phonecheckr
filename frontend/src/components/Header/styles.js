@@ -2,12 +2,17 @@ import styled from 'styled-components';
 
 import AppBar from '@material-ui/core/AppBar';
 
+import Logo from '../Logo';
 import SearchBar from '../SearchBar';
 
 const StyledAppBar = styled(AppBar)`
   ${({ theme: { header } }) => (`
     border-bottom: 1px solid ${header.primaryBorderColor};
   `)}
+`;
+
+const StyledLogo = styled(Logo)`
+  font-size: 26px;
 `;
 
 const StyledSearchBar = styled(SearchBar)`
@@ -27,5 +32,6 @@ const StyledSearchBar = styled(SearchBar)`
 
 export {
   StyledAppBar,
+  StyledLogo,
   StyledSearchBar
 };
