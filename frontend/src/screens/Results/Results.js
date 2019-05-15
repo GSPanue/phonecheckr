@@ -11,6 +11,7 @@ import {
 } from './styles';
 import Header from '../../components/Header';
 import Content from '../../components/Content';
+import ProgressBar from '../../components/ProgressBar';
 
 const propTypes = {
   location: PropTypes.object.isRequired
@@ -22,6 +23,7 @@ const Results = ({ location }) => {
   return (
     <Wrapper>
       <Header />
+      <ProgressBar />
       <Content>
         <QueryContainer>
           You searched for&nbsp;
