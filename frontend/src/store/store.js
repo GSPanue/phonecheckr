@@ -1,9 +1,10 @@
 import { applyMiddleware, createStore } from 'redux';
+import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import reducer from '../reducers';
 
-let middleware = [];
+let middleware = [thunk];
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
   middleware = [
