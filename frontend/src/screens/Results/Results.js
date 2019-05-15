@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { getQuery } from '../../helpers';
@@ -14,11 +14,23 @@ import Content from '../../components/Content';
 import ProgressBar from '../../components/ProgressBar';
 
 const propTypes = {
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
+  showProgressBar: PropTypes.func.isRequired,
+  hideProgressBar: PropTypes.func.isRequired
 };
 
-const Results = ({ location }) => {
+const Results = ({ location, showProgressBar, hideProgressBar }) => {
   const query = getQuery(location);
+
+  useEffect(() => {
+    // Show progress bar
+    showProgressBar();
+
+    // Hide progress bar after fetching data
+    setTimeout(() => {
+      hideProgressBar();
+    }, 5000);
+  });
 
   return (
     <Wrapper>
