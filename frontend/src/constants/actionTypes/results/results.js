@@ -1,0 +1,7 @@
+const SHOW_RESULTS = 'SHOW_RESULTS';
+const HIDE_RESULTS = 'HIDE_RESULTS';
+
+export {
+  SHOW_RESULTS,
+  HIDE_RESULTS
+};
