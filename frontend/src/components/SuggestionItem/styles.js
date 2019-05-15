@@ -15,7 +15,7 @@ const Wrapper = styled((props) => (
         background-color: ${ripple.primaryColor}30;
       }
 
-      &.selected {
+      & .selected {
         background-color: ${ripple.primaryColor}5c;
       }
     `)}
