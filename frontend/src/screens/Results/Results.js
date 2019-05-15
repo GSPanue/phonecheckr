@@ -15,43 +15,72 @@ import ProgressBar from '../../components/ProgressBar';
 
 const propTypes = {
   location: PropTypes.object.isRequired,
+  show: PropTypes.bool.isRequired,
   showProgressBar: PropTypes.func.isRequired,
-  hideProgressBar: PropTypes.func.isRequired
+  hideProgressBar: PropTypes.func.isRequired,
+  showResults: PropTypes.func.isRequired,
+  hideResults: PropTypes.func.isRequired
 };
 
-const Results = ({ location, showProgressBar, hideProgressBar }) => {
+const Results = ({
+  location,
+  show,
+  showProgressBar,
+  hideProgressBar,
+  showResults,
+  hideResults
+}) => {
   const query = getQuery(location);
 
   useEffect(() => {
-    // Show progress bar
-    showProgressBar();
+    if (!show) {
+      showProgressBar();
 
-    // Hide progress bar after fetching data
-    setTimeout(() => {
-      hideProgressBar();
-    }, 5000);
-  });
+      /**
+       * @ToDo Fetch results here before hiding progress bar
+       * and showing the result(s).
+       */
+      setTimeout(() => {
+        hideProgressBar();
+        showResults();
+      }, 1000);
+    }
+
+    return (() => {
+      if (show) {
+        hideResults();
+      }
+    });
+  }, [show]);
+
+  if (show) {
+    return (
+      <Wrapper>
+        <Header />
+        <Content>
+          <QueryContainer>
+            You searched for&nbsp;
+            <StyledText>
+              &quot;
+              {query}
+              &quot;
+            </StyledText>
+          </QueryContainer>
+          <ProductCountContainer>
+            Products&nbsp;
+            <StyledText>
+              (100+)
+            </StyledText>
+          </ProductCountContainer>
+        </Content>
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper>
       <Header />
       <ProgressBar />
-      <Content>
-        <QueryContainer>
-          You searched for&nbsp;
-          <StyledText>
-            &quot;
-            {query}
-            &quot;
-          </StyledText>
-        </QueryContainer>
-        <ProductCountContainer>
-          Products&nbsp;
-          <StyledText>
-            (100+)
-          </StyledText>
-        </ProductCountContainer>
-      </Content>
     </Wrapper>
   );
 };
