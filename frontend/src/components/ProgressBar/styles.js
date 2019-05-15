@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   left: 0;
   margin-top: 57px;
 
+  ${({ hide }) => (hide) && (`
+    display: none;
+  `)}
+
   @media (min-width: 600px) {
     margin-top: 65px;
   }
