@@ -6,9 +6,8 @@ import { getQuery } from '../../helpers';
 import {
   Wrapper,
   QueryContainer,
-  Query,
   ProductCountContainer,
-  ProductCount
+  StyledText
 } from './styles';
 import Header from '../../components/Header';
 import Content from '../../components/Content';
@@ -26,17 +25,17 @@ const Results = ({ location }) => {
       <Content>
         <QueryContainer>
           You searched for&nbsp;
-          <Query>
+          <StyledText>
             &quot;
             {query}
             &quot;
-          </Query>
+          </StyledText>
         </QueryContainer>
         <ProductCountContainer>
           Products&nbsp;
-          <ProductCount>
+          <StyledText>
             (100+)
-          </ProductCount>
+          </StyledText>
         </ProductCountContainer>
       </Content>
     </Wrapper>

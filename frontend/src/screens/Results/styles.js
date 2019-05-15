@@ -18,26 +18,21 @@ const TextContainer = styled.div`
 `;
 
 const QueryContainer = styled(TextContainer)`
-  font-size: 26px;
-`;
-
-const Query = styled.span`
-  color: ${({ theme: { text } }) => (text.secondaryColor)};
+  font-size: 30px;
 `;
 
 const ProductCountContainer = styled(TextContainer)`
   margin-top: 5px;
-  font-size: 16px;
+  font-size: 20px;
 `;
 
-const ProductCount = styled.span`
+const StyledText = styled.span`
   color: ${({ theme: { text } }) => (text.secondaryColor)}
 `;
 
 export {
   Wrapper,
   QueryContainer,
-  Query,
   ProductCountContainer,
-  ProductCount
+  StyledText
 };
