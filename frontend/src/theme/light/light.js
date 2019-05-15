@@ -16,6 +16,10 @@ const light = {
   header: {
     primaryBorderColor: palette.alabaster
   },
+  progressBar: {
+    primaryColor: palette.alabaster,
+    secondaryColor: palette.carnation
+  },
   text: {
     primaryColor: palette.mineShaft,
     secondaryColor: palette.carnation,
