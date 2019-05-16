@@ -12,6 +12,7 @@ import {
 import Header from '../../components/Header';
 import Content from '../../components/Content';
 import ProgressBar from '../../components/ProgressBar';
+import ResultsTable from '../../components/ResultsTable';
 
 const propTypes = {
   location: PropTypes.object.isRequired,
@@ -72,6 +73,7 @@ const Results = ({
               (100+)
             </StyledText>
           </ProductCountContainer>
+          <ResultsTable />
         </Content>
       </Wrapper>
     );
