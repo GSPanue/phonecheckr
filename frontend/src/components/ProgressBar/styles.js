@@ -13,6 +13,10 @@ const Wrapper = styled.div`
     display: none;
   `)}
 
+  @media (min-width: 0px) and (orientation: landscape) {
+    margin-top: 48px;
+  }
+
   @media (min-width: 600px) {
     margin-top: 64px;
   }
