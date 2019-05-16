@@ -43,7 +43,7 @@ const Results = ({
       setTimeout(() => {
         hideProgressBar();
         showResults();
-      }, 1000);
+      }, 500);
     }
 
     return (() => {
