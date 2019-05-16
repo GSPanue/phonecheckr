@@ -13,12 +13,8 @@ const palette = {
  * Light theme
  */
 const light = {
-  header: {
-    primaryBorderColor: palette.alabaster
-  },
   progressBar: {
-    primaryColor: palette.alabaster,
-    secondaryColor: palette.carnation
+    primaryColor: palette.carnation
   },
   text: {
     primaryColor: palette.mineShaft,
@@ -56,6 +52,10 @@ const light = {
   suggestionItem: {
     height: '14px',
     fontSize: '16px'
+  },
+  table: {
+    primaryColor: palette.mineShaft,
+    primaryBorderColor: palette.alabaster
   }
 };
 
