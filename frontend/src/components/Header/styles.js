@@ -6,9 +6,9 @@ import Logo from '../Logo';
 import SearchBar from '../SearchBar';
 
 const StyledAppBar = styled(AppBar)`
-  ${({ theme: { header } }) => (`
-    border-bottom: 1px solid ${header.primaryBorderColor};
-  `)}
+  && {
+    box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+  }
 `;
 
 const StyledLogo = styled(Logo)`
