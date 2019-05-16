@@ -7,14 +7,14 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
   left: 0;
-  margin-top: 57px;
+  margin-top: 56px;
 
   ${({ hide }) => (hide) && (`
     display: none;
   `)}
 
   @media (min-width: 600px) {
-    margin-top: 65px;
+    margin-top: 64px;
   }
 `;
 
@@ -23,11 +23,10 @@ const StyledLinearProgress = styled((props) => (
 ))`
   && {
     height: 3px;
-    background-color: ${({ theme: { progressBar } }) => (progressBar.primaryColor)};
   }
 
   & .bar {
-    background-color: ${({ theme: { progressBar } }) => (progressBar.secondaryColor)};
+    background-color: ${({ theme: { progressBar } }) => (progressBar.primaryColor)};
   }
 `;
 
