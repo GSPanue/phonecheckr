@@ -18,12 +18,12 @@ const TextContainer = styled.div`
 `;
 
 const QueryContainer = styled(TextContainer)`
-  font-size: 30px;
+  font-size: 28px;
 `;
 
 const ProductCountContainer = styled(TextContainer)`
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 19px;
 `;
 
 const StyledText = styled.span`
