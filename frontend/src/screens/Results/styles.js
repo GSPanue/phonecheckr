@@ -18,7 +18,7 @@ const TextContainer = styled.div`
 `;
 
 const QueryContainer = styled(TextContainer)`
-  font-size: 28px;
+  font-size: 32px;
 `;
 
 const ProductCountContainer = styled(TextContainer)`
