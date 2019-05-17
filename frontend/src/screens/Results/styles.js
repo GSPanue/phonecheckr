@@ -13,7 +13,7 @@ const TextContainer = styled.div`
   align-items: center;
 
   ${({ padding }) => (padding) && (`
-    padding-top: 12px;
+    padding-top: 6px;
   `)}
 `;
 
