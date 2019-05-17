@@ -10,29 +10,35 @@ const Wrapper = styled.div`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 
-  ${({ theme: { text } }) => (`
-    font-weight: ${text.medium};
-    color: ${text.primaryColor};
+  ${({ padding }) => (padding) && (`
+    padding-top: 12px;
   `)}
 `;
 
-const QueryContainer = styled(TextContainer)`
-  font-size: 32px;
-`;
-
-const ProductCountContainer = styled(TextContainer)`
-  padding-top: 24px;
-  font-size: 19px;
-`;
-
 const StyledText = styled.span`
-  color: ${({ theme: { text } }) => (text.secondaryColor)}
+  font-size: ${({ large, small }) => {
+    if (large || small) {
+      return (
+        (large) ? '32px' : '16px'
+      );
+    }
+
+    return (
+      '24px'
+    );
+  }};
+
+  font-weight: ${({ light, theme: { text } }) => ((light) ? text.light : text.medium)};
+
+  color: ${({ light, theme: { text } }) => (
+    (light) ? text.tertiaryColor : text.primaryColor
+  )};
 `;
 
 export {
   Wrapper,
-  QueryContainer,
-  ProductCountContainer,
+  TextContainer,
   StyledText
 };
