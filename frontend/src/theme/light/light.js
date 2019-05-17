@@ -20,7 +20,8 @@ const light = {
     primaryColor: palette.mineShaft,
     secondaryColor: palette.carnation,
     bold: '700',
-    medium: '500'
+    medium: '500',
+    light: '300'
   },
   logo: {
     primaryColor: palette.carnation,
