@@ -22,7 +22,7 @@ const QueryContainer = styled(TextContainer)`
 `;
 
 const ProductCountContainer = styled(TextContainer)`
-  margin-top: 5px;
+  padding-top: 24px;
   font-size: 19px;
 `;
 
