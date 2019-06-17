@@ -4,23 +4,20 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 
-import { PrimaryTableCell, SecondaryTableCell } from './styles';
+import { StyledTableCell } from './styles';
+import ResultsItem from '../ResultsItem';
 
 const ResultsTable = () => (
   <Table>
     <TableHead>
       <TableRow>
-        <PrimaryTableCell>Name</PrimaryTableCell>
-        <PrimaryTableCell>Price</PrimaryTableCell>
-        <PrimaryTableCell align="center">Stores</PrimaryTableCell>
+        <StyledTableCell>Name</StyledTableCell>
+        <StyledTableCell>Price</StyledTableCell>
+        <StyledTableCell align="center">Stores</StyledTableCell>
       </TableRow>
     </TableHead>
     <TableBody>
-      <TableRow>
-        <SecondaryTableCell>iPhone 6s</SecondaryTableCell>
-        <SecondaryTableCell>£905.11</SecondaryTableCell>
-        <SecondaryTableCell align="center">23</SecondaryTableCell>
-      </TableRow>
+      <ResultsItem name="iPhone 6s" price="905.11" stores="23" />
     </TableBody>
   </Table>
 );
