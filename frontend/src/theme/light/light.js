@@ -19,7 +19,6 @@ const light = {
   text: {
     primaryColor: palette.mineShaft,
     secondaryColor: palette.carnation,
-    tertiaryColor: palette.alto,
     bold: '700',
     medium: '500',
     light: '300'
