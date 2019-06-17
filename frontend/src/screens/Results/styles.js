@@ -30,10 +30,10 @@ const StyledText = styled.span`
     );
   }};
 
-  font-weight: ${({ light, theme: { text } }) => ((light) ? text.light : text.medium)};
+  font-weight: ${({ theme: { text } }) => (text.medium)};
 
-  color: ${({ light, theme: { text } }) => (
-    (light) ? text.tertiaryColor : text.primaryColor
+  color: ${({ danger, theme: { text } }) => (
+    (danger) ? text.secondaryColor : text.primaryColor
   )};
 `;
 

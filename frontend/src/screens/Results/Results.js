@@ -68,7 +68,7 @@ const Results = ({
           </TextContainer>
           <TextContainer padding>
             <StyledText>Products&nbsp;</StyledText>
-            <StyledText small light>(100+)</StyledText>
+            <StyledText small danger>(100+)</StyledText>
           </TextContainer>
           <ResultsTable />
         </Content>
