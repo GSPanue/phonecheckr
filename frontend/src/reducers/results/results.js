@@ -4,6 +4,7 @@ import {
 } from '../../constants';
 
 const initialState = {
+  results: null,
   show: false
 };
 
@@ -12,12 +13,14 @@ const results = (state = initialState, action) => {
     case SHOW_RESULTS:
       return ({
         ...state,
+        results: action.payload,
         show: true
       });
 
     case HIDE_RESULTS:
       return ({
         ...state,
+        results: null,
         show: false
       });
 
