@@ -69,8 +69,9 @@ const Results = ({
       <Wrapper>
         <Header />
         <Content>
-          <TextContainer center>
-            <StyledText large>{`No results found for "${query}"`}</StyledText>
+          <TextContainer column center>
+            <StyledText large danger>{`No results found for "${query}"`}</StyledText>
+            <StyledText small>Check your spelling or remove a keyword and try again!</StyledText>
           </TextContainer>
         </Content>
       </Wrapper>

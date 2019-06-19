@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ column }) => ((column) ? 'column' : 'row')};
   align-items: center;
 
   ${({ padding }) => (padding) && (`
