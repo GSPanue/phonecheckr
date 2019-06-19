@@ -6,7 +6,7 @@
  * @returns {string|number}
  */
 const getNumberOfResults = (searchResults) => (
-  (searchResults.length >= 100) ? '100+' : searchResults
+  (searchResults.length >= 100) ? '100+' : searchResults.length
 );
 
 export {
