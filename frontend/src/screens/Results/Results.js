@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { getQuery } from '../../helpers';
+import { getNumberOfResults } from './helpers';
 
 import {
   Wrapper,
@@ -15,7 +16,7 @@ import ResultsTable from '../../components/ResultsTable';
 
 const propTypes = {
   location: PropTypes.object.isRequired,
-  searchResults: PropTypes.object,
+  searchResults: PropTypes.array,
   show: PropTypes.bool.isRequired,
   fetchResults: PropTypes.func.isRequired,
   hideResults: PropTypes.func.isRequired
@@ -48,6 +49,8 @@ const Results = ({
 
   if (show) {
     if (searchResults) {
+      const numberOfResults = getNumberOfResults(searchResults);
+
       return (
         <Wrapper>
           <Header />
@@ -57,9 +60,9 @@ const Results = ({
             </TextContainer>
             <TextContainer padding>
               <StyledText>Products&nbsp;</StyledText>
-              <StyledText small danger>(100+)</StyledText>
+              <StyledText small danger>{`(${numberOfResults})`}</StyledText>
             </TextContainer>
-            <ResultsTable />
+            <ResultsTable items={searchResults} />
           </Content>
         </Wrapper>
       );
