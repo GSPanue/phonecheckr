@@ -1,25 +1,37 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 
-import { StyledTableCell } from './styles';
-import ResultsItem from '../ResultsItem';
+import { getTableItems } from './helpers';
 
-const ResultsTable = () => (
-  <Table>
-    <TableHead>
-      <TableRow>
-        <StyledTableCell>Name</StyledTableCell>
-        <StyledTableCell>Price</StyledTableCell>
-        <StyledTableCell align="center">Stores</StyledTableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <ResultsItem name="iPhone 6s" price="905.11" stores="23" />
-    </TableBody>
-  </Table>
-);
+import { StyledTableCell } from './styles';
+
+const propTypes = {
+  items: PropTypes.array.isRequired
+};
+
+const ResultsTable = ({ items }) => {
+  const tableItems = getTableItems(items);
+
+  return (
+    <Table>
+      <TableHead>
+        <TableRow>
+          <StyledTableCell>Name</StyledTableCell>
+          <StyledTableCell>Price</StyledTableCell>
+          <StyledTableCell align="center">Stores</StyledTableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {tableItems}
+      </TableBody>
+    </Table>
+  );
+};
+
+ResultsTable.propTypes = propTypes;
 
 export default ResultsTable;
