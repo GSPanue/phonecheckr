@@ -4,7 +4,7 @@ import {
 } from '../../constants';
 
 const initialState = {
-  results: null,
+  searchResults: null,
   show: false
 };
 
@@ -13,7 +13,7 @@ const results = (state = initialState, action) => {
     case SHOW_RESULTS:
       return ({
         ...state,
-        results: action.payload,
+        searchResults: action.payload,
         show: true
       });
 
