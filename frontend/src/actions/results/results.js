@@ -19,7 +19,7 @@ const fetchResults = () => (
      * @todo Hide progress bar and show results
      */
 
-    const results = null;
+    const searchResults = null;
 
     setTimeout(() => {
       dispatch({
@@ -28,7 +28,7 @@ const fetchResults = () => (
 
       dispatch({
         type: SHOW_RESULTS,
-        payload: results
+        payload: searchResults
       });
     }, 500);
   });
