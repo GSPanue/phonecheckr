@@ -16,34 +16,21 @@ import ResultsTable from '../../components/ResultsTable';
 const propTypes = {
   location: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
-  showProgressBar: PropTypes.func.isRequired,
-  hideProgressBar: PropTypes.func.isRequired,
-  showResults: PropTypes.func.isRequired,
+  fetchResults: PropTypes.func.isRequired,
   hideResults: PropTypes.func.isRequired
 };
 
 const Results = ({
   location,
   show,
-  showProgressBar,
-  hideProgressBar,
-  showResults,
+  fetchResults,
   hideResults
 }) => {
   const query = getQuery(location);
 
   useEffect(() => {
     if (!show) {
-      showProgressBar();
-
-      /**
-       * @ToDo Fetch results here before hiding progress bar
-       * and showing the result(s).
-       */
-      setTimeout(() => {
-        hideProgressBar();
-        showResults();
-      }, 500);
+      fetchResults(query);
     }
 
     return (() => {

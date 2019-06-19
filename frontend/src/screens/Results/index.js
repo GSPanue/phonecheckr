@@ -2,9 +2,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import {
-  showProgressBar,
-  hideProgressBar,
-  showResults,
+  fetchResults,
   hideResults
 } from '../../actions';
 
@@ -19,9 +17,7 @@ const mapStateToProps = ({ results }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  showProgressBar: () => dispatch(showProgressBar()),
-  hideProgressBar: () => dispatch(hideProgressBar()),
-  showResults: () => dispatch(showResults()),
+  fetchResults: (query) => dispatch(fetchResults(query)),
   hideResults: () => dispatch(hideResults())
 });
 
