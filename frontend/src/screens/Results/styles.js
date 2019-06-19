@@ -15,6 +15,11 @@ const TextContainer = styled.div`
   ${({ padding }) => (padding) && (`
     padding-top: 6px;
   `)}
+
+  ${({ center }) => (center) && (`
+    height: 100%;
+    justify-content: center;
+  `)}
 `;
 
 const StyledText = styled.span`

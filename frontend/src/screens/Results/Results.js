@@ -15,13 +15,19 @@ import ResultsTable from '../../components/ResultsTable';
 
 const propTypes = {
   location: PropTypes.object.isRequired,
+  searchResults: PropTypes.object,
   show: PropTypes.bool.isRequired,
   fetchResults: PropTypes.func.isRequired,
   hideResults: PropTypes.func.isRequired
 };
 
+const defaultProps = {
+  searchResults: null
+};
+
 const Results = ({
   location,
+  searchResults,
   show,
   fetchResults,
   hideResults
@@ -41,23 +47,31 @@ const Results = ({
   }, [show]);
 
   if (show) {
+    if (searchResults) {
+      return (
+        <Wrapper>
+          <Header />
+          <Content>
+            <TextContainer>
+              <StyledText large>{`You searched for "${query}"`}</StyledText>
+            </TextContainer>
+            <TextContainer padding>
+              <StyledText>Products&nbsp;</StyledText>
+              <StyledText small danger>(100+)</StyledText>
+            </TextContainer>
+            <ResultsTable />
+          </Content>
+        </Wrapper>
+      );
+    }
+
     return (
       <Wrapper>
         <Header />
         <Content>
-          <TextContainer>
-            <StyledText large>You searched for&nbsp;</StyledText>
-            <StyledText large>
-              &quot;
-              {query}
-              &quot;
-            </StyledText>
+          <TextContainer center>
+            <StyledText large>{`No results found for "${query}"`}</StyledText>
           </TextContainer>
-          <TextContainer padding>
-            <StyledText>Products&nbsp;</StyledText>
-            <StyledText small danger>(100+)</StyledText>
-          </TextContainer>
-          <ResultsTable />
         </Content>
       </Wrapper>
     );
@@ -72,5 +86,6 @@ const Results = ({
 };
 
 Results.propTypes = propTypes;
+Results.defaultProps = defaultProps;
 
 export default Results;

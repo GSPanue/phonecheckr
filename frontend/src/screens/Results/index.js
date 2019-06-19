@@ -9,9 +9,10 @@ import {
 import Results from './Results';
 
 const mapStateToProps = ({ results }) => {
-  const { show } = results;
+  const { searchResults, show } = results;
 
   return ({
+    searchResults,
     show
   });
 };
