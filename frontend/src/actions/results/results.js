@@ -19,13 +19,16 @@ const fetchResults = () => (
      * @todo Hide progress bar and show results
      */
 
+    const results = null;
+
     setTimeout(() => {
       dispatch({
         type: HIDE_PROGRESS_BAR
       });
 
       dispatch({
-        type: SHOW_RESULTS
+        type: SHOW_RESULTS,
+        payload: results
       });
     }, 500);
   });
