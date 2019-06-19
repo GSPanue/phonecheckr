@@ -1,17 +1,40 @@
 import {
+  SHOW_PROGRESS_BAR,
+  HIDE_PROGRESS_BAR,
   SHOW_RESULTS,
   HIDE_RESULTS
 } from '../../constants';
 
-const showResults = () => ({
-  type: SHOW_RESULTS
-});
+/**
+ * @todo Add param for query
+ */
+const fetchResults = () => (
+  (dispatch) => {
+    dispatch({
+      type: SHOW_PROGRESS_BAR
+    });
+
+    /**
+     * @todo Fetch and store results
+     * @todo Hide progress bar and show results
+     */
+
+    setTimeout(() => {
+      dispatch({
+        type: HIDE_PROGRESS_BAR
+      });
+
+      dispatch({
+        type: SHOW_RESULTS
+      });
+    }, 500);
+  });
 
 const hideResults = () => ({
   type: HIDE_RESULTS
 });
 
 export {
-  showResults,
+  fetchResults,
   hideResults
 };
