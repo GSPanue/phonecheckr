@@ -6,17 +6,29 @@ import ResultsItem from '../ResultsItem';
  * Creates an array of ResultsItem components.
  *
  * @param {array} items - The items.
+ * @param {number} page - The page.
+ * @param {number} rowsPerPage - The rows per page.
  *
  * @returns {array}
  */
-const getTableItems = (items) => (
-  items.map((item) => (
+const getNextTableItems = (items, page, rowsPerPage) => (
+  items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((item) => (
     <ResultsItem key={item.name} {...item} />
   ))
 );
 
-export {
-  getTableItems
-};
+/**
+ * Gets the total number of table items.
+ *
+ * @param {array} items - The items.
+ *
+ * @returns {number}
+ */
+const getTotalTableItems = (items) => (
+  items.length
+);
 
-window.getTableItems = getTableItems;
+export {
+  getNextTableItems,
+  getTotalTableItems
+};
