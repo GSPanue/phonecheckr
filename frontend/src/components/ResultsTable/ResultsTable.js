@@ -7,7 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
-import { getTableItems } from './helpers';
+import { getNextTableItems, getTotalTableItems } from './helpers';
 
 import { StyledTableCell } from './styles';
 import TablePaginationActions from '../TablePaginationActions';
@@ -30,7 +30,8 @@ const ResultsTable = ({ items }) => {
     setRowsPerPage(parseInt(value, 10));
   };
 
-  const tableItems = getTableItems(items);
+  const tableItems = getNextTableItems(items, page, rowsPerPage);
+  const totalTableItems = getTotalTableItems(items);
 
   return (
     <Table>
@@ -49,7 +50,7 @@ const ResultsTable = ({ items }) => {
           <TablePagination
             rowsPerPageOptions={[10, 25]}
             colSpan={3}
-            count={tableItems.length}
+            count={totalTableItems}
             rowsPerPage={rowsPerPage}
             page={page}
             onChangePage={handleChangePage}
