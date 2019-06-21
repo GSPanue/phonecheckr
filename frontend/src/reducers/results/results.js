@@ -20,7 +20,7 @@ const results = (state = initialState, action) => {
     case HIDE_RESULTS:
       return ({
         ...state,
-        results: null,
+        searchResults: null,
         show: false
       });
 
