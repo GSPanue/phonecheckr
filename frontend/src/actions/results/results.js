@@ -16,7 +16,6 @@ const fetchResults = () => (
 
     /**
      * @todo Fetch and store results
-     * @todo Hide progress bar and show results
      */
 
     const searchResults = null;
