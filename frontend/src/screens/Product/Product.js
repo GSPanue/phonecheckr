@@ -1,7 +1,16 @@
 import React from 'react';
 
+import { Wrapper } from './styles';
+import Header from '../../components/Header';
+import Content from '../../components/Content';
+
 const Product = () => (
-  <div>Product</div>
+  <Wrapper>
+    <Header />
+    <Content>
+      Product
+    </Content>
+  </Wrapper>
 );
 
 export default Product;
