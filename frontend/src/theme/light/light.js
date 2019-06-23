@@ -57,6 +57,10 @@ const light = {
   table: {
     primaryColor: palette.mineShaft,
     primaryBorderColor: palette.alabaster
+  },
+  button: {
+    primaryBorderColor: palette.carnation,
+    primaryColor: palette.carnation
   }
 };
 
