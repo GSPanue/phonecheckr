@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
+import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+
+const StyledTableRow = styled(TableRow)`
+  td {
+    border: none;
+  }
+`;
 
 const StyledTableCell = styled(TableCell)`
   && {
@@ -12,5 +19,6 @@ const StyledTableCell = styled(TableCell)`
 `;
 
 export {
+  StyledTableRow,
   StyledTableCell
 };
