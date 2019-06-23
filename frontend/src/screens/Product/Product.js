@@ -5,6 +5,7 @@ import { Wrapper } from './styles';
 import Header from '../../components/Header';
 import ProgressBar from '../../components/ProgressBar';
 import Content from '../../components/Content';
+import BackButton from '../../components/BackButton';
 
 const propTypes = {
   show: PropTypes.bool.isRequired,
@@ -30,6 +31,7 @@ const Product = ({ show, fetchProduct, hideProduct }) => {
       <Wrapper>
         <Header />
         <Content>
+          <BackButton />
           Product
         </Content>
       </Wrapper>
