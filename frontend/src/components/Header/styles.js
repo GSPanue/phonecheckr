@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 import Logo from '../Logo';
 import SearchBar from '../SearchBar';
@@ -8,6 +9,12 @@ import SearchBar from '../SearchBar';
 const StyledAppBar = styled(AppBar)`
   && {
     box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+  }
+`;
+
+const StyledToolbar = styled(Toolbar)`
+  && {
+    padding: 0 10%;
   }
 `;
 
@@ -32,6 +39,7 @@ const StyledSearchBar = styled(SearchBar)`
 
 export {
   StyledAppBar,
+  StyledToolbar,
   StyledLogo,
   StyledSearchBar
 };

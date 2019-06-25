@@ -1,17 +1,16 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
 
-import { StyledAppBar, StyledLogo, StyledSearchBar } from './styles';
+import { StyledAppBar, StyledToolbar, StyledLogo, StyledSearchBar } from './styles';
 import Link from '../Link';
 
 const Header = () => (
   <StyledAppBar elevation={0} position="fixed">
-    <Toolbar>
+    <StyledToolbar>
       <Link to="/">
         <StyledLogo />
       </Link>
       <StyledSearchBar />
-    </Toolbar>
+    </StyledToolbar>
   </StyledAppBar>
 );
 
