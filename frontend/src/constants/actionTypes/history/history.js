@@ -1,0 +1,5 @@
+const CHANGE_LOCATION = 'CHANGE_LOCATION';
+
+export {
+  CHANGE_LOCATION
+};
