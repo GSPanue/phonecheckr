@@ -1,23 +1,15 @@
 import React, { useEffect } from 'react';
 
-const withLocation = (Component) => (props) => {
-  const WrappedComponent = () => {
-    // eslint-disable-next-line react/prop-types
-    const { changeLocation, ...rest } = props;
+// eslint-disable-next-line react/prop-types
+const withLocation = (Component) => ({ changeLocation, ...rest }) => {
+  useEffect(() => () => {
+    const currentComponent = Component.name.toLowerCase();
 
-    useEffect(() => () => {
-      const currentComponent = Component.name.toLowerCase();
-
-      changeLocation(currentComponent);
-    }, []);
-
-    return (
-      <Component {...rest} />
-    );
-  };
+    changeLocation(currentComponent);
+  }, []);
 
   return (
-    <WrappedComponent />
+    <Component {...rest} />
   );
 };
 
