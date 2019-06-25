@@ -2,12 +2,6 @@ import styled from 'styled-components';
 
 import Button from '@material-ui/core/Button';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
 const StyledButton = styled(Button)`
   && {
     ${({ theme: { button } }) => (`
@@ -18,6 +12,5 @@ const StyledButton = styled(Button)`
 `;
 
 export {
-  Wrapper,
   StyledButton
 };
