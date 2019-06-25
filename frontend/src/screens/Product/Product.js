@@ -9,11 +9,17 @@ import BackButton from '../../components/BackButton';
 
 const propTypes = {
   show: PropTypes.bool.isRequired,
+  showBackButton: PropTypes.bool.isRequired,
   fetchProduct: PropTypes.func.isRequired,
   hideProduct: PropTypes.func.isRequired
 };
 
-const Product = ({ show, fetchProduct, hideProduct }) => {
+const Product = ({
+  show,
+  showBackButton,
+  fetchProduct,
+  hideProduct
+}) => {
   useEffect(() => {
     if (!show) {
       fetchProduct();
@@ -31,7 +37,7 @@ const Product = ({ show, fetchProduct, hideProduct }) => {
       <Wrapper>
         <Header />
         <Content>
-          <BackButton />
+          {(showBackButton) && <BackButton />}
           Product
         </Content>
       </Wrapper>

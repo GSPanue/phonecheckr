@@ -8,11 +8,13 @@ import {
 import Product from './Product';
 import withLocation from '../../components/withLocation';
 
-const mapStateToProps = ({ product }) => {
+const mapStateToProps = ({ product, history }) => {
   const { show } = product;
+  const { prevLocation } = history;
 
   return ({
-    show
+    show,
+    showBackButton: prevLocation !== null
   });
 };
 
