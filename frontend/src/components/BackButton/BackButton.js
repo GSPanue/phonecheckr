@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 
 import { StyledButton } from './styles';
 
@@ -14,7 +15,8 @@ const BackButton = ({ history }) => {
 
   return (
     <StyledButton variant="outlined" size="small" onClick={handleGoBack}>
-        Go Back
+      <KeyboardArrowLeft />
+      Go Back
     </StyledButton>
   );
 };
