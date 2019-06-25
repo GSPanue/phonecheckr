@@ -7,6 +7,7 @@ import {
 } from '../../actions';
 
 import Results from './Results';
+import withLocation from '../../components/withLocation';
 
 const mapStateToProps = ({ results }) => {
   const { searchResults, show } = results;
@@ -22,4 +23,4 @@ const mapDispatchToProps = (dispatch) => ({
   hideResults: () => dispatch(hideResults())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Results));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withLocation(Results)));

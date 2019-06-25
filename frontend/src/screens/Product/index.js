@@ -6,6 +6,7 @@ import {
 } from '../../actions';
 
 import Product from './Product';
+import withLocation from '../../components/withLocation';
 
 const mapStateToProps = ({ product }) => {
   const { show } = product;
@@ -20,4 +21,4 @@ const mapDispatchToProps = (dispatch) => ({
   hideProduct: () => dispatch(hideProduct())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(withLocation(Product));
