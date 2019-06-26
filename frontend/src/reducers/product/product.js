@@ -9,7 +9,7 @@ import {
  */
 const initialState = {
   show: false,
-  storage: null
+  storage: ''
 };
 
 const product = (state = initialState, action) => {
