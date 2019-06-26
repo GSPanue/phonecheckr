@@ -1,13 +1,15 @@
 import {
   SHOW_PRODUCT,
-  HIDE_PRODUCT
+  HIDE_PRODUCT,
+  UPDATE_STORAGE
 } from '../../constants';
 
 /**
  * @todo Add properties for product information
  */
 const initialState = {
-  show: false
+  show: false,
+  storage: null
 };
 
 const product = (state = initialState, action) => {
@@ -22,6 +24,12 @@ const product = (state = initialState, action) => {
       return ({
         ...state,
         show: false
+      });
+
+    case UPDATE_STORAGE:
+      return ({
+        ...state,
+        storage: action.payload
       });
 
     default:
