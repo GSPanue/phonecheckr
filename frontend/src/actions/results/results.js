@@ -40,7 +40,7 @@ const fetchResults = () => (
           payload: searchResults
         });
       }
-    }, 5000);
+    }, 500);
   });
 
 const clearResults = () => ({
