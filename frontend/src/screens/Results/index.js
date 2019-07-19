@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {
   fetchResults,
-  hideResults
+  clearResults
 } from '../../actions';
 
 import Results from './Results';
@@ -20,7 +20,7 @@ const mapStateToProps = ({ results }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchResults: (query) => dispatch(fetchResults(query)),
-  hideResults: () => dispatch(hideResults())
+  clearResults: () => dispatch(clearResults())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(withLocation(Results)));

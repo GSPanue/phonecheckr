@@ -19,7 +19,7 @@ const propTypes = {
   searchResults: PropTypes.array,
   show: PropTypes.bool.isRequired,
   fetchResults: PropTypes.func.isRequired,
-  hideResults: PropTypes.func.isRequired
+  clearResults: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -31,7 +31,7 @@ const Results = ({
   searchResults,
   show,
   fetchResults,
-  hideResults
+  clearResults
 }) => {
   const query = getQuery(location);
 
@@ -42,7 +42,7 @@ const Results = ({
 
     return (() => {
       if (show) {
-        hideResults();
+        clearResults();
       }
     });
   }, [show]);
