@@ -1,6 +1,6 @@
 import {
   SHOW_PRODUCT,
-  HIDE_PRODUCT,
+  CLEAR_PRODUCT,
   UPDATE_STORAGE
 } from '../../constants';
 
@@ -20,10 +20,11 @@ const product = (state = initialState, action) => {
         show: true
       });
 
-    case HIDE_PRODUCT:
+    case CLEAR_PRODUCT:
       return ({
         ...state,
-        show: false
+        show: false,
+        storage: ''
       });
 
     case UPDATE_STORAGE:
