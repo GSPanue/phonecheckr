@@ -7,6 +7,36 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const InnerContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.span`
+  font-size: 32px;
+  font-weight: 500;
+  color: ${({ theme: { text } }) => (text.primaryColor)};
+  padding-bottom: 4px;
+`;
+
+const Description = styled.span`
+  font-size: 18px;
+  color: ${({ theme: { text } }) => (text.primaryColor)};
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+`;
+
 export {
-  Wrapper
+  Wrapper,
+  InnerContent,
+  TextContainer,
+  Title,
+  Description
 };
