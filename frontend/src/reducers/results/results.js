@@ -1,6 +1,6 @@
 import {
   SHOW_RESULTS,
-  HIDE_RESULTS
+  CLEAR_RESULTS
 } from '../../constants';
 
 const initialState = {
@@ -17,7 +17,7 @@ const results = (state = initialState, action) => {
         show: true
       });
 
-    case HIDE_RESULTS:
+    case CLEAR_RESULTS:
       return ({
         ...state,
         searchResults: null,
