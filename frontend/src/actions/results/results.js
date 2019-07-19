@@ -9,7 +9,7 @@ import {
  * @todo Add param for query
  */
 const fetchResults = () => (
-  (dispatch) => {
+  (dispatch, getState) => {
     dispatch({
       type: SHOW_PROGRESS_BAR
     });
@@ -28,15 +28,19 @@ const fetchResults = () => (
     ];
 
     setTimeout(() => {
-      dispatch({
-        type: HIDE_PROGRESS_BAR
-      });
+      const { history: { currentLocation } } = getState();
 
-      dispatch({
-        type: SHOW_RESULTS,
-        payload: searchResults
-      });
-    }, 500);
+      if (currentLocation === 'results') {
+        dispatch({
+          type: HIDE_PROGRESS_BAR
+        });
+
+        dispatch({
+          type: SHOW_RESULTS,
+          payload: searchResults
+        });
+      }
+    }, 5000);
   });
 
 const clearResults = () => ({
