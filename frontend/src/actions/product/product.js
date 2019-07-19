@@ -2,7 +2,7 @@ import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
   SHOW_PRODUCT,
-  HIDE_PRODUCT,
+  CLEAR_PRODUCT,
   UPDATE_STORAGE
 } from '../../constants';
 
@@ -34,8 +34,8 @@ const fetchProduct = () => (
   }
 );
 
-const hideProduct = () => ({
-  type: HIDE_PRODUCT
+const clearProduct = () => ({
+  type: CLEAR_PRODUCT
 });
 
 const updateStorage = (size) => ({
@@ -45,6 +45,6 @@ const updateStorage = (size) => ({
 
 export {
   fetchProduct,
-  hideProduct,
+  clearProduct,
   updateStorage
 };
