@@ -1,12 +1,13 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import { changeLocation } from '../../actions';
+import { setCurrentLocation, setPreviousLocation } from '../../actions';
 
 import withLocation from './withLocation';
 
 const mapDispatchToProps = (dispatch) => ({
-  changeLocation: (location) => dispatch(changeLocation(location))
+  setCurrentLocation: (location) => dispatch(setCurrentLocation(location)),
+  setPreviousLocation: () => dispatch(setPreviousLocation())
 });
 
 const composedWithLocation = compose(
