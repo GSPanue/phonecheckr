@@ -1,12 +1,18 @@
 import {
-  CHANGE_LOCATION
+  SET_CURRENT_LOCATION,
+  SET_PREVIOUS_LOCATION
 } from '../../constants';
 
-const changeLocation = (location) => ({
-  type: CHANGE_LOCATION,
+const setCurrentLocation = (location) => ({
+  type: SET_CURRENT_LOCATION,
   payload: location
 });
 
+const setPreviousLocation = () => ({
+  type: SET_PREVIOUS_LOCATION
+});
+
 export {
-  changeLocation
+  setCurrentLocation,
+  setPreviousLocation
 };
