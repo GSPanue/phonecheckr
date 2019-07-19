@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import {
   fetchProduct,
-  hideProduct
+  clearProduct
 } from '../../actions';
 
 import Product from './Product';
@@ -20,7 +20,7 @@ const mapStateToProps = ({ product, history }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProduct: () => dispatch(fetchProduct()),
-  hideProduct: () => dispatch(hideProduct())
+  clearProduct: () => dispatch(clearProduct())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withLocation(Product));

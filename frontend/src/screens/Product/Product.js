@@ -19,7 +19,7 @@ const propTypes = {
   show: PropTypes.bool.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   fetchProduct: PropTypes.func.isRequired,
-  hideProduct: PropTypes.func.isRequired
+  clearProduct: PropTypes.func.isRequired
 };
 
 /**
@@ -29,7 +29,7 @@ const Product = ({
   show,
   showBackButton,
   fetchProduct,
-  hideProduct
+  clearProduct
 }) => {
   useEffect(() => {
     if (!show) {
@@ -38,7 +38,7 @@ const Product = ({
 
     return (() => {
       if (show) {
-        hideProduct();
+        clearProduct();
       }
     });
   }, [show]);
