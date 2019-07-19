@@ -2,8 +2,7 @@ import {
   UPDATE_QUERY,
   SUBMIT_QUERY,
   REVOKE_SUBMIT_QUERY,
-  CLEAR_QUERY,
-  HIDE_RESULTS
+  CLEAR_QUERY
 } from '../../constants';
 
 const updateQuery = (query) => ({
@@ -19,17 +18,9 @@ const revokeSubmitQuery = () => ({
   type: REVOKE_SUBMIT_QUERY
 });
 
-const clearQuery = () => (
-  (dispatch) => {
-    dispatch({
-      type: CLEAR_QUERY
-    });
-
-    dispatch({
-      type: HIDE_RESULTS
-    });
-  }
-);
+const clearQuery = () => ({
+  type: CLEAR_QUERY
+});
 
 export {
   updateQuery,
