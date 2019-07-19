@@ -18,7 +18,8 @@ const navigate = ({
   value,
   history,
   revokeSubmitQuery,
-  clearQuery
+  clearQuery,
+  clearResults
 }) => {
   const query = value.trim();
   const shouldNavigate = shouldNavigateToResults(query);
@@ -30,6 +31,7 @@ const navigate = ({
     });
 
     clearQuery();
+    clearResults();
   }
   else {
     revokeSubmitQuery();
