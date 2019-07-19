@@ -2,7 +2,7 @@ import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
   SHOW_RESULTS,
-  HIDE_RESULTS
+  CLEAR_RESULTS
 } from '../../constants';
 
 /**
@@ -16,9 +16,16 @@ const fetchResults = () => (
 
     /**
      * @todo Fetch and store results
+     * @todo Remove dummy data
      */
 
-    const searchResults = null;
+    const searchResults = [
+      {
+        name: 'iPhone 6s',
+        price: '901.12',
+        stores: '23'
+      }
+    ];
 
     setTimeout(() => {
       dispatch({
@@ -32,11 +39,11 @@ const fetchResults = () => (
     }, 500);
   });
 
-const hideResults = () => ({
-  type: HIDE_RESULTS
+const clearResults = () => ({
+  type: CLEAR_RESULTS
 });
 
 export {
   fetchResults,
-  hideResults
+  clearResults
 };
