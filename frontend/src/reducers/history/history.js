@@ -1,17 +1,26 @@
 import {
-  CHANGE_LOCATION
+  SET_CURRENT_LOCATION,
+  SET_PREVIOUS_LOCATION
 } from '../../constants';
 
 const initialState = {
-  prevLocation: null
+  currentLocation: null,
+  previousLocation: null
 };
 
 const history = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_LOCATION:
+    case SET_CURRENT_LOCATION:
       return ({
         ...state,
-        prevLocation: action.payload
+        currentLocation: action.payload
+      });
+
+    case SET_PREVIOUS_LOCATION:
+      return ({
+        ...state,
+        previousLocation: state.currentLocation,
+        currentLocation: null
       });
 
     default:
