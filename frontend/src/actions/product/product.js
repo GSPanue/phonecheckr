@@ -10,7 +10,7 @@ import {
  * @todo Add param for product
  */
 const fetchProduct = () => (
-  (dispatch) => {
+  (dispatch, getState) => {
     dispatch({
       type: SHOW_PROGRESS_BAR
     });
@@ -22,14 +22,18 @@ const fetchProduct = () => (
     const productInformation = null;
 
     setTimeout(() => {
-      dispatch({
-        type: HIDE_PROGRESS_BAR
-      });
+      const { history: { currentLocation } } = getState();
 
-      dispatch({
-        type: SHOW_PRODUCT,
-        payload: productInformation
-      });
+      if (currentLocation === 'product') {
+        dispatch({
+          type: HIDE_PROGRESS_BAR
+        });
+
+        dispatch({
+          type: SHOW_PRODUCT,
+          payload: productInformation
+        });
+      }
     }, 500);
   }
 );
