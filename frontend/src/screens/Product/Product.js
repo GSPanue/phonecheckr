@@ -14,6 +14,21 @@ import Content from '../../components/Content';
 import BackButton from '../../components/BackButton';
 import Range from '../../components/Range';
 import StorageDropdown from '../../components/StorageDropdown';
+import ResultsTable from '../../components/ResultsTable';
+
+/**
+ * @todo Remove dummmy data.
+ */
+const results = [
+  {
+    store: 'Currys',
+    name: 'iPhone 6s 16GB Black',
+    price: 901.12,
+    delivery: 0.01,
+    stock: 'In Stock',
+    website: 'http://www.example.com'
+  }
+];
 
 const propTypes = {
   show: PropTypes.bool.isRequired,
@@ -58,6 +73,7 @@ const Product = ({
               <StorageDropdown storageOptions={['16GB', '32GB']} />
             </TextContainer>
           </InnerContent>
+          <ResultsTable type="product" items={results} />
         </Content>
       </Wrapper>
     );
