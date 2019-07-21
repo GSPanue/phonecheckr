@@ -1,36 +1,36 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { navigate } from './helpers';
+import { getRowCells, navigate } from './helpers';
 
-import { StyledTableRow, StyledTableCell } from './styles';
+import { StyledTableRow } from './styles';
 
 const propTypes = {
-  name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  stores: PropTypes.string.isRequired,
-  history: PropTypes.object.isRequired
+  type: PropTypes.oneOf(['results', 'product']).isRequired,
+  website: PropTypes.string
 };
 
-const ResultsItem = ({
-  name,
-  price,
-  stores,
-  ...rest
-}) => {
+const defaultProps = {
+  website: undefined
+};
+
+const ResultsItem = ({ type, website, ...rest }) => {
+  const cells = useMemo(() => (
+    getRowCells(rest)
+  ), []);
+
   const handleClick = useCallback(() => (
-    navigate(name, rest)
+    navigate(type, website, rest)
   ), []);
 
   return (
     <StyledTableRow onClick={handleClick} hover>
-      <StyledTableCell>{name}</StyledTableCell>
-      <StyledTableCell>{`£${price}`}</StyledTableCell>
-      <StyledTableCell align="center">{stores}</StyledTableCell>
+      {cells}
     </StyledTableRow>
   );
 };
 
 ResultsItem.propTypes = propTypes;
+ResultsItem.defaultProps = defaultProps;
 
 export default ResultsItem;

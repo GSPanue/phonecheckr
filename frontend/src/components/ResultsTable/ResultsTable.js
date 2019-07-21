@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -7,16 +7,21 @@ import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
-import { getNextTableItems, getTotalTableItems } from './helpers';
+import { getTableHead, getNextTableItems, getTotalTableItems } from './helpers';
 
-import { StyledTableCell, StyledTableRow } from './styles';
+import { StyledTableRow } from './styles';
 import TablePaginationActions from '../TablePaginationActions';
 
 const propTypes = {
+  type: PropTypes.oneOf(['results', 'product']),
   items: PropTypes.array.isRequired
 };
 
-const ResultsTable = ({ items }) => {
+const defaultProps = {
+  type: 'results'
+};
+
+const ResultsTable = ({ type, items }) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -30,16 +35,17 @@ const ResultsTable = ({ items }) => {
     setRowsPerPage(parseInt(value, 10));
   };
 
-  const tableItems = getNextTableItems(items, page, rowsPerPage);
+  const tableHead = useMemo(() => (
+    getTableHead(type)
+  ), [type]);
+  const tableItems = getNextTableItems(type, items, page, rowsPerPage);
   const totalTableItems = getTotalTableItems(items);
 
   return (
     <Table>
       <TableHead>
         <TableRow>
-          <StyledTableCell>Name</StyledTableCell>
-          <StyledTableCell>Price</StyledTableCell>
-          <StyledTableCell align="center">Stores</StyledTableCell>
+          {tableHead}
         </TableRow>
       </TableHead>
       <TableBody>
@@ -49,7 +55,7 @@ const ResultsTable = ({ items }) => {
         <StyledTableRow>
           <TablePagination
             rowsPerPageOptions={[10, 25]}
-            colSpan={3}
+            colSpan={(type === 'product') ? 5 : 3}
             count={totalTableItems}
             rowsPerPage={rowsPerPage}
             page={page}
@@ -64,5 +70,6 @@ const ResultsTable = ({ items }) => {
 };
 
 ResultsTable.propTypes = propTypes;
+ResultsTable.defaultProps = defaultProps;
 
 export default ResultsTable;
