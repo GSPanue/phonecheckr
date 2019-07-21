@@ -22,8 +22,8 @@ const fetchResults = () => (
     const searchResults = [
       {
         name: 'iPhone 6s',
-        price: '901.12',
-        stores: '23'
+        price: 901.12,
+        stores: 23
       }
     ];
 
