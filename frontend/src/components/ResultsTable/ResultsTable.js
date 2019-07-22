@@ -54,7 +54,7 @@ const ResultsTable = ({ type, items }) => {
       <TableFooter>
         <StyledTableRow>
           <TablePagination
-            rowsPerPageOptions={[10, 25]}
+            rowsPerPageOptions={[10]}
             colSpan={(type === 'product') ? 5 : 3}
             count={totalTableItems}
             rowsPerPage={rowsPerPage}
