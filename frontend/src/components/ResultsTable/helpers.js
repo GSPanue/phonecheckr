@@ -23,7 +23,7 @@ const getTableHead = (type) => {
 
   return (
     columns.map((column) => {
-      if (column === 'Stores' || column === 'Stock') {
+      if (column === 'Stores') {
         return (
           <StyledTableCell key={column} align="center">{column}</StyledTableCell>
         );
