@@ -23,22 +23,15 @@ const defaultProps = {
 
 const ResultsTable = ({ type, items }) => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
-  const handleChangeRowsPerPage = (event) => {
-    const { target: { value } } = event;
-
-    setRowsPerPage(parseInt(value, 10));
-  };
-
   const tableHead = useMemo(() => (
     getTableHead(type)
   ), [type]);
-  const tableItems = getNextTableItems(type, items, page, rowsPerPage);
+  const tableItems = getNextTableItems(type, items, page, 10);
   const totalTableItems = getTotalTableItems(items);
 
   return (
@@ -57,10 +50,9 @@ const ResultsTable = ({ type, items }) => {
             rowsPerPageOptions={[10]}
             colSpan={(type === 'product') ? 5 : 3}
             count={totalTableItems}
-            rowsPerPage={rowsPerPage}
+            rowsPerPage={10}
             page={page}
             onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
             ActionsComponent={TablePaginationActions}
           />
         </StyledTableRow>
