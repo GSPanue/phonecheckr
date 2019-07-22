@@ -23,6 +23,7 @@ const results = [
   {
     store: 'Currys',
     name: 'iPhone 6s 16GB Black',
+    storage: 16,
     price: 901.12,
     delivery: 0.01,
     stock: 'In Stock',
