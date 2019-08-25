@@ -19,8 +19,7 @@ module.exports = {
         path.join(root, 'node_modules')
       ],
       loader: [
-        'babel-loader',
-        'eslint-loader'
+        'babel-loader'
       ]
     }]
   },
