@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "start": "node --require babel-register ./src",
+    "watch": "webpack --watch --config ./config/webpack.dev.config.babel.js",
+    "build": "webpack -p --config ./config/webpack.prod.config.babel.js",
+    "analyse": "webpack-bundle-analyzer --port 4200 ./dist/stats.json"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "webpack": "^4.39.2",
+    "webpack-bundle-analyzer": "^3.4.1",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
