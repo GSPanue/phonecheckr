@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { Wrapper, StyledText } from './styles';
 
 const propTypes = {
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired
+  from: PropTypes.number.isRequired,
+  to: PropTypes.number.isRequired
 };
 
 const Range = ({ from, to }) => (
