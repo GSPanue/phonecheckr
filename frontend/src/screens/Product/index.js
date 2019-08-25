@@ -9,11 +9,10 @@ import Product from './Product';
 import withLocation from '../../components/withLocation';
 
 const mapStateToProps = ({ product, history }) => {
-  const { show } = product;
   const { previousLocation } = history;
 
   return ({
-    show,
+    ...product,
     showBackButton: previousLocation !== null
   });
 };

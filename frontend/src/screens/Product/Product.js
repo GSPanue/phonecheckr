@@ -15,22 +15,13 @@ import BackButton from '../../components/BackButton';
 import Range from '../../components/Range';
 import ResultsTable from '../../components/ResultsTable';
 
-/**
- * @todo Remove dummmy data.
- */
-const results = [
-  {
-    store: 'Currys',
-    name: 'iPhone 6s 16GB Black',
-    price: 901.12,
-    delivery: 0.01,
-    stock: 'In Stock',
-    website: 'http://www.example.com'
-  }
-];
-
 const propTypes = {
   show: PropTypes.bool.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  range: PropTypes.object.isRequired,
+  results: PropTypes.array.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   fetchProduct: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired
@@ -41,6 +32,11 @@ const propTypes = {
  */
 const Product = ({
   show,
+  image,
+  name,
+  description,
+  range,
+  results,
   showBackButton,
   fetchProduct,
   clearProduct
@@ -64,11 +60,11 @@ const Product = ({
         <Content>
           {(showBackButton) && <BackButton />}
           <InnerContent>
-            <img height="300" width="300" src="https://images.pricerunner.com/product/600x600/1599071093/Apple-iPhone-6S-32GB.jpg?c=0.7" alt="d" />
+            <img height="300" width="300" src={image} alt={name} />
             <TextContainer>
-              <Title>Apple iPhone 6s</Title>
-              <Description>Apple iOS, 4.7&quot;, Release Year 2016, 12 MP, 143g, 4G LTE, 3G, HSPA, EDGE, GPRS, Wi-Fi, NFC, Bluetooth, 2G, VoLTE, DC-HSPA, HSPA+</Description>
-              <Range from="239.99" to="460.24" />
+              <Title>{name}</Title>
+              <Description>{description}</Description>
+              <Range from={range.from} to={range.to} />
             </TextContainer>
           </InnerContent>
           <ResultsTable type="product" items={results} />
