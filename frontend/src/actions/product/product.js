@@ -16,6 +16,8 @@ const fetchProduct = () => (
 
     /**
      * @todo Fetch and store product information
+     *
+     * @todo Fetch product table items
      */
 
     const productInformation = null;
