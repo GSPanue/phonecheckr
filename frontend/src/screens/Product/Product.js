@@ -13,7 +13,6 @@ import ProgressBar from '../../components/ProgressBar';
 import Content from '../../components/Content';
 import BackButton from '../../components/BackButton';
 import Range from '../../components/Range';
-import StorageDropdown from '../../components/StorageDropdown';
 import ResultsTable from '../../components/ResultsTable';
 
 /**
@@ -23,7 +22,6 @@ const results = [
   {
     store: 'Currys',
     name: 'iPhone 6s 16GB Black',
-    storage: 16,
     price: 901.12,
     delivery: 0.01,
     stock: 'In Stock',
@@ -71,7 +69,6 @@ const Product = ({
               <Title>Apple iPhone 6s</Title>
               <Description>Apple iOS, 4.7&quot;, Release Year 2016, 12 MP, 143g, 4G LTE, 3G, HSPA, EDGE, GPRS, Wi-Fi, NFC, Bluetooth, 2G, VoLTE, DC-HSPA, HSPA+</Description>
               <Range from="239.99" to="460.24" />
-              <StorageDropdown storageOptions={['16GB', '32GB']} />
             </TextContainer>
           </InnerContent>
           <ResultsTable type="product" items={results} />

@@ -2,8 +2,7 @@ import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
   SHOW_PRODUCT,
-  CLEAR_PRODUCT,
-  UPDATE_STORAGE
+  CLEAR_PRODUCT
 } from '../../constants';
 
 /**
@@ -42,13 +41,7 @@ const clearProduct = () => ({
   type: CLEAR_PRODUCT
 });
 
-const updateStorage = (size) => ({
-  type: UPDATE_STORAGE,
-  payload: size
-});
-
 export {
   fetchProduct,
-  clearProduct,
-  updateStorage
+  clearProduct
 };
