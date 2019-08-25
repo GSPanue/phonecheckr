@@ -7,7 +7,15 @@ import {
  * @todo Add properties for product information
  */
 const initialState = {
-  show: false
+  show: false,
+  image: '',
+  name: '',
+  description: '',
+  range: {
+    from: null,
+    to: null
+  },
+  results: []
 };
 
 const product = (state = initialState, action) => {
