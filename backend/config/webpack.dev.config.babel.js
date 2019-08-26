@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import NodemonWebpackPlugin from 'nodemon-webpack-plugin';
 import path from 'path';
 
 const root = path.resolve(__dirname, '..');
@@ -24,7 +25,8 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new NodemonWebpackPlugin()
   ],
   target: 'node'
 };
