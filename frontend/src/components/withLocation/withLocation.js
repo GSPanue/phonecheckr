@@ -1,11 +1,20 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 
-// eslint-disable-next-line react/prop-types
-const withLocation = (Component) => ({ setCurrentLocation, setPreviousLocation, ...rest }) => {
-  useEffect(() => {
-    const currentComponent = Component.name.toLowerCase();
+import { getCurrentRoute } from './helpers';
 
-    setCurrentLocation(currentComponent);
+const withLocation = (Component) => ({
+  setCurrentLocation,
+  setPreviousLocation,
+  history,
+  ...rest
+}) => {
+  useEffect(() => {
+    const { location: { pathname } } = history;
+
+    const currentLocation = getCurrentRoute(pathname);
+
+    setCurrentLocation(currentLocation);
 
     return (() => {
       setPreviousLocation();
