@@ -50,10 +50,6 @@ const light = {
     primaryColor: palette.carnation,
     fontSize: '25px'
   },
-  suggestionItem: {
-    height: '14px',
-    fontSize: '16px'
-  },
   table: {
     primaryColor: palette.mineShaft,
     primaryBorderColor: palette.alabaster
