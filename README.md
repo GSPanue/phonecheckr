@@ -9,15 +9,45 @@ A single-page application for comparing mobile phone deals
 1. Clone the repository: ``git clone https://github.com/GSPanue/phonecheckr.git``
 2. Install the dependencies: ``npm install``
 
-## Development
+## Demo
 
-1. Initialise the local server: ``npm run bundle:dev``
+1. Generate the frontend and backend production bundles: ``npm run build``
+2. Initialise the server: ``npm start``
+3. Go to ``http://localhost:8080``
+
+## Frontend Development
+
+##### Getting started
+
+1. Initialise the local development server: ``npm run frontend:dev``
 2. Go to: ``http://localhost:8080``
 
-## Scripts
+##### Generating the frontend production bundle
 
-- Generate the frontend bundle: ``npm run bundle:build``
-- Analyse the frontend bundle: ``npm run bundle:analyse``
+You can generate the frontend production bundle by running ``npm run frontend:build``.
+
+Note: The bundle will be output to ``frontend/dist/js``.
+
+##### Analysing the frontend bundle
+
+After generating the frontend production bundle, you can [analyse it](https://github.com/webpack-contrib/webpack-bundle-analyzer#webpack-bundle-analyzer) by running ``npm run frontend:analyse``.
+
+## Backend Development
+
+##### Getting started
+
+1. Initialise the local development server: ``npm run backend:dev``
+2. Go to ``http://localhost:8080``
+
+##### Generating the backend production bundle
+
+You can generate the backend production bundle by running ``npm run backend:build``.
+
+Note: The bundle will be output to ``backend/dist``.
+
+##### Analysing the backend bundle
+
+After generating the backend production bundle, you can [analyse it](https://github.com/webpack-contrib/webpack-bundle-analyzer#webpack-bundle-analyzer) by running ``npm run backend:analyse``.
 
 ## Version
 
