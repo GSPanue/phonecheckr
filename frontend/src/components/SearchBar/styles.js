@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 import Input from '../Input';
 
-const classNames = {
-  container: 'react-autosuggest__container',
-  suggestionsContainerOpen: 'react-autosuggest__suggestions-container--open',
-  suggestionsList: 'react-autosuggest__suggestions-list',
-  suggestion: 'react-autosuggest__suggestion'
-};
-
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
@@ -23,25 +16,6 @@ const Wrapper = styled.div`
     height: ${searchBar.height};
     background: ${((primary) ? searchBar.primaryBackground : searchBar.secondaryBackground)};
   `)}
-
-  .${classNames.container} {
-    display: flex;
-    flex: 1;
-  }
-
-  .${classNames.suggestionsContainerOpen} {
-    margin-top: 52px;
-  }
-
-  .${classNames.suggestionsList} {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-
-  .${classNames.suggestion} {
-    display: block;
-  }
 `;
 
 const StyledInput = styled(Input)`
