@@ -17,35 +17,35 @@ A single-page application for comparing mobile phone deals
 
 ## Frontend Development
 
-##### Getting started
+#### Getting started
 
 1. Initialise the local development server: ``npm run frontend:dev``
 2. Go to: ``http://localhost:8080``
 
-##### Generating the frontend production bundle
+#### Generating the frontend production bundle
 
 You can generate the frontend production bundle by running ``npm run frontend:build``.
 
 Note: The bundle will be output to ``frontend/dist/js``.
 
-##### Analysing the frontend bundle
+#### Analysing the frontend bundle
 
 After generating the frontend production bundle, you can [analyse it](https://github.com/webpack-contrib/webpack-bundle-analyzer#webpack-bundle-analyzer) by running ``npm run frontend:analyse``.
 
 ## Backend Development
 
-##### Getting started
+#### Getting started
 
 1. Initialise the local development server: ``npm run backend:dev``
 2. Go to ``http://localhost:8080``
 
-##### Generating the backend production bundle
+#### Generating the backend production bundle
 
 You can generate the backend production bundle by running ``npm run backend:build``.
 
 Note: The bundle will be output to ``backend/dist``.
 
-##### Analysing the backend bundle
+#### Analysing the backend bundle
 
 After generating the backend production bundle, you can [analyse it](https://github.com/webpack-contrib/webpack-bundle-analyzer#webpack-bundle-analyzer) by running ``npm run backend:analyse``.
 
