@@ -13,7 +13,7 @@ A single-page application for comparing mobile phone deals
 
 1. Generate the frontend and backend production bundles: ``npm run build``
 2. Initialise the server: ``npm start``
-3. Go to ``http://localhost:8080``
+3. Go to: ``http://localhost:8080``
 
 ## Frontend Development
 
@@ -37,7 +37,7 @@ After generating the frontend production bundle, you can [analyse it](https://gi
 #### Getting started
 
 1. Initialise the local development server: ``npm run backend:dev``
-2. Go to ``http://localhost:8080``
+2. Go to: ``http://localhost:8080``
 
 #### Generating the backend production bundle
 
