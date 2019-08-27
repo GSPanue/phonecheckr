@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+
+import { getProduct } from '../../helpers';
 
 import {
   Wrapper,
@@ -16,12 +19,14 @@ import Range from '../../components/Range';
 import ResultsTable from '../../components/ResultsTable';
 
 const propTypes = {
+  location: PropTypes.object.isRequired,
   show: PropTypes.bool.isRequired,
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   range: PropTypes.object.isRequired,
   results: PropTypes.array.isRequired,
+  error: PropTypes.bool.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   fetchProduct: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired
@@ -31,27 +36,37 @@ const propTypes = {
  * @todo Remove placeholder text
  */
 const Product = ({
+  location,
   show,
   image,
   name,
   description,
   range,
   results,
+  error,
   showBackButton,
   fetchProduct,
   clearProduct
 }) => {
   useEffect(() => {
     if (!show) {
-      fetchProduct();
+      const id = getProduct(location);
+
+      fetchProduct(id);
     }
 
     return (() => {
-      if (show) {
+      if (show || error) {
         clearProduct();
       }
     });
-  }, [show]);
+  }, [show, error]);
+
+  if (error) {
+    return (
+      <Redirect to="/404" />
+    );
+  }
 
   if (show) {
     return (

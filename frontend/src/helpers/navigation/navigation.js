@@ -10,6 +10,18 @@ const getQuery = ({ search }) => (
   new URLSearchParams(search).get('q')
 );
 
+/**
+ * Obtains the product id from the pathname.
+ *
+ * @param {object} location - The current location.
+ *
+ * @returns {string}
+ */
+const getProduct = ({ pathname }) => (
+  pathname.replace('/product/', '')
+);
+
 export {
-  getQuery
+  getQuery,
+  getProduct
 };

@@ -1,6 +1,7 @@
 import {
   SHOW_PRODUCT,
-  CLEAR_PRODUCT
+  CLEAR_PRODUCT,
+  SHOW_ERROR
 } from '../../constants';
 
 /**
@@ -15,7 +16,8 @@ const initialState = {
     from: null,
     to: null
   },
-  results: []
+  results: [],
+  error: false
 };
 
 const product = (state = initialState, action) => {
@@ -29,7 +31,22 @@ const product = (state = initialState, action) => {
     case CLEAR_PRODUCT:
       return ({
         ...state,
-        show: false
+        show: false,
+        image: '',
+        name: '',
+        description: '',
+        range: {
+          from: null,
+          to: null
+        },
+        results: [],
+        error: false
+      });
+
+    case SHOW_ERROR:
+      return ({
+        ...state,
+        error: true
       });
 
     default:

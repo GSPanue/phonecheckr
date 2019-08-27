@@ -18,7 +18,7 @@ const mapStateToProps = ({ product, history }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProduct: () => dispatch(fetchProduct()),
+  fetchProduct: (id) => dispatch(fetchProduct(id)),
   clearProduct: () => dispatch(clearProduct())
 });
 

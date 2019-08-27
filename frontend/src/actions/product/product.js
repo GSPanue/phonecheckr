@@ -1,28 +1,29 @@
+import axios from 'axios';
+
+import { getAPIURL } from '../../helpers';
+
 import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
   SHOW_PRODUCT,
-  CLEAR_PRODUCT
+  CLEAR_PRODUCT,
+  SHOW_ERROR
 } from '../../constants';
 
-/**
- * @todo Add param for product
- */
-const fetchProduct = () => (
+const fetchProduct = (id) => (
   (dispatch, getState) => {
     dispatch({
       type: SHOW_PROGRESS_BAR
     });
 
-    /**
-     * @todo Fetch and store product information
-     *
-     * @todo Fetch product table items
-     */
+    const APIURL = getAPIURL();
 
-    const productInformation = null;
-
-    setTimeout(() => {
+    axios.get(`${APIURL}/product`, {
+      params: {
+        id
+      }
+    }).then((res) => {
+      const { data: { product } } = res;
       const { history: { currentLocation } } = getState();
 
       if (currentLocation === 'product') {
@@ -32,10 +33,14 @@ const fetchProduct = () => (
 
         dispatch({
           type: SHOW_PRODUCT,
-          payload: productInformation
+          payload: product
         });
       }
-    }, 500);
+    }).catch(() => {
+      dispatch({
+        type: SHOW_ERROR
+      });
+    });
   }
 );
 
@@ -43,7 +48,12 @@ const clearProduct = () => ({
   type: CLEAR_PRODUCT
 });
 
+const showError = () => ({
+  type: SHOW_ERROR
+});
+
 export {
   fetchProduct,
-  clearProduct
+  clearProduct,
+  showError
 };
