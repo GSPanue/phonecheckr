@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { getAPIURL } from '../../helpers';
+
 import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
@@ -13,7 +15,9 @@ const fetchResults = (query) => (
       type: SHOW_PROGRESS_BAR
     });
 
-    axios.get('api/v1/search', {
+    const APIURL = getAPIURL();
+
+    axios.get(`${APIURL}/search`, {
       params: {
         query
       }
