@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {
   SHOW_PROGRESS_BAR,
   HIDE_PROGRESS_BAR,
@@ -5,29 +7,18 @@ import {
   CLEAR_RESULTS
 } from '../../constants';
 
-/**
- * @todo Add param for query
- */
-const fetchResults = () => (
+const fetchResults = (query) => (
   (dispatch, getState) => {
     dispatch({
       type: SHOW_PROGRESS_BAR
     });
 
-    /**
-     * @todo Fetch and store results
-     * @todo Remove dummy data
-     */
-
-    const searchResults = [
-      {
-        name: 'iPhone 6s',
-        price: 901.12,
-        stores: 23
+    axios.get('api/v1/search', {
+      params: {
+        query
       }
-    ];
-
-    setTimeout(() => {
+    }).then((res) => {
+      const { data: { results } } = res;
       const { history: { currentLocation } } = getState();
 
       if (currentLocation === 'results') {
@@ -37,10 +28,19 @@ const fetchResults = () => (
 
         dispatch({
           type: SHOW_RESULTS,
-          payload: searchResults
+          payload: results
         });
       }
-    }, 500);
+    }).catch(() => {
+      dispatch({
+        type: HIDE_PROGRESS_BAR
+      });
+
+      dispatch({
+        type: SHOW_RESULTS,
+        payload: null
+      });
+    });
   });
 
 const clearResults = () => ({
