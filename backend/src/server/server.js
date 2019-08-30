@@ -1,7 +1,12 @@
 import express from 'express';
+import knex from 'knex';
+import { Model } from 'objection';
 import path from 'path';
 
+import database from '../../config/database';
 import api from '../api';
+
+Model.knex(knex(database));
 
 const app = express();
 const port = process.env.PORT || 8080;
