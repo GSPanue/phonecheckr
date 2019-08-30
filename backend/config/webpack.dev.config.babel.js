@@ -24,6 +24,9 @@ module.exports = {
       ]
     }]
   },
+  externals: {
+    knex: 'commonjs knex'
+  },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new NodemonWebpackPlugin()

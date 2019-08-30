@@ -22,6 +22,9 @@ module.exports = {
       ]
     }]
   },
+  externals: {
+    knex: 'commonjs knex'
+  },
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: 'disable',
