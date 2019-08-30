@@ -1,5 +1,6 @@
 ## PhoneCheckr
 **/node_modules
+.env
 
 # Bundles
 frontend/dist/js
