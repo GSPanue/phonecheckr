@@ -3,7 +3,7 @@ import knex from 'knex';
 import { Model } from 'objection';
 import path from 'path';
 
-import { database } from '../../config';
+import { database } from 'config';
 import api from '../api';
 
 Model.knex(knex(database));
