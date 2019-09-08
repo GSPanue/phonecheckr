@@ -32,7 +32,7 @@ const fetchResults = (query) => (
 
         dispatch({
           type: SHOW_RESULTS,
-          payload: results
+          payload: (results.length > 0) ? results : null
         });
       }
     }).catch(() => {
