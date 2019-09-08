@@ -11,6 +11,13 @@ const config = {
     filename: 'bundle.min.js'
   },
   externals: [nodeExternals()],
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      '@': path.join(root, 'src'),
+      config: path.join(root, 'config')
+    }
+  },
   target: 'node'
 };
 
