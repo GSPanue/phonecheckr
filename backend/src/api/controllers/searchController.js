@@ -1,14 +1,31 @@
+import Product from '@/database/models/Product';
+
 const getSearch = (req, res) => {
-  /**
-   * @todo Fetch data from database
-   */
-  res.send({
-    results: [{
-      name: 'iPhone 6s',
-      price: 901.12,
-      stores: 23
-    }]
-  });
+  const { query: { query } } = req;
+
+  Product.query()
+    .joinEager({
+      brands: true,
+      models: true
+    })
+    .where('brands.name', 'like', `%${query}%`)
+    .orWhere('models.name', 'like', `%${query}%`)
+    .omit([
+      'id',
+      'url_id',
+      'brand_id',
+      'model_id',
+      'supplier_id',
+      'colour_id',
+      'storage_capacity_id',
+      'image',
+      'description'
+    ])
+    .then((data) => (
+      res.send({
+        results: data
+      })
+    ));
 };
 
 export {
