@@ -14,5 +14,13 @@
   },
   "parserOptions": {
     "ecmaVersion": 6
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {},
+      "webpack": {
+        "config": "./config/webpack.base.config.babel.js"
+      }
+    }
   }
 }
