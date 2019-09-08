@@ -2,16 +2,13 @@ import webpack from 'webpack';
 import NodemonWebpackPlugin from 'nodemon-webpack-plugin';
 import path from 'path';
 
+import baseConfig from './webpack.base.config.babel';
+
 const root = path.resolve(__dirname, '..');
 
-module.exports = {
+const config = {
+  ...baseConfig,
   mode: 'development',
-  devtool: '',
-  entry: path.join(root, 'src'),
-  output: {
-    path: path.join(root, 'dist'),
-    filename: 'bundle.min.js'
-  },
   module: {
     rules: [{
       test: /\.(js)$/,
@@ -24,12 +21,10 @@ module.exports = {
       ]
     }]
   },
-  externals: {
-    knex: 'commonjs knex'
-  },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new NodemonWebpackPlugin()
-  ],
-  target: 'node'
+  ]
 };
+
+export default config;

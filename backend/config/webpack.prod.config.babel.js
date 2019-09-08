@@ -1,16 +1,13 @@
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import path from 'path';
 
+import baseConfig from './webpack.base.config.babel';
+
 const root = path.resolve(__dirname, '..');
 
-module.exports = {
+const config = {
+  ...baseConfig,
   mode: 'production',
-  devtool: '',
-  entry: path.join(root, 'src'),
-  output: {
-    path: path.join(root, 'dist'),
-    filename: 'bundle.min.js'
-  },
   module: {
     rules: [{
       test: /\.(js)$/,
@@ -22,9 +19,6 @@ module.exports = {
       ]
     }]
   },
-  externals: {
-    knex: 'commonjs knex'
-  },
   plugins: [
     new BundleAnalyzerPlugin({
       analyzerMode: 'disable',
@@ -33,6 +27,7 @@ module.exports = {
         source: false
       }
     })
-  ],
-  target: 'node'
+  ]
 };
+
+export default config;
