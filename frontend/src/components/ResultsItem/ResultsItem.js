@@ -7,20 +7,27 @@ import { StyledTableRow } from './styles';
 
 const propTypes = {
   type: PropTypes.oneOf(['results', 'product']).isRequired,
-  website: PropTypes.string
+  website: PropTypes.string,
+  page: PropTypes.string
 };
 
 const defaultProps = {
-  website: undefined
+  website: undefined,
+  page: undefined
 };
 
-const ResultsItem = ({ type, website, ...rest }) => {
+const ResultsItem = ({
+  type,
+  website,
+  page,
+  ...rest
+}) => {
   const cells = useMemo(() => (
     getRowCells(rest)
   ), []);
 
   const handleClick = useCallback(() => (
-    navigate(type, website, rest)
+    navigate(type, (website || page), rest)
   ), []);
 
   return (

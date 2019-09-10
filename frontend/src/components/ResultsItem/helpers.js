@@ -45,21 +45,19 @@ const getRowCells = ({
  * Navigates to the product screen or an external website.
  *
  * @param {string} type - The table type.
- * @param {string} website - The product's website address.
+ * @param {string} path - The path.
  * @param {string} name - The product name.
  * @param {object} history - The router history object.
  *
  * @returns {void}
  */
-const navigate = (type, website, { name, history }) => {
+const navigate = (type, path, { history }) => {
   if (type === 'product') {
-    window.open(website, '_blank');
+    window.open(path, '_blank');
   }
   else {
-    const productName = name.replace(/\W+/g, '-').toLowerCase();
-
     history.push({
-      pathname: `/product/${productName}`
+      pathname: `/product/${path}`
     });
   }
 };
