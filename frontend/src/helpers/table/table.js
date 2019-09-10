@@ -9,12 +9,19 @@ const prepareTableData = (data) => {
   const newData = {};
 
   data.forEach((product) => {
-    const { brands: { name: brandName }, models: { name: modelName }, price } = product;
-    const name = `${brandName} ${modelName}`;
+    const {
+      pages: { name: page },
+      brands: { name: brand },
+      models: { name: model },
+      price
+    } = product;
+
+    const name = `${brand} ${model}`;
 
     if (newData[name] === undefined) {
       newData[name] = {
         name,
+        page,
         price,
         deals: 1
       };
