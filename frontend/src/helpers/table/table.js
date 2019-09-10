@@ -16,14 +16,14 @@ const prepareTableData = (data) => {
       newData[name] = {
         name,
         price,
-        stores: 1
+        deals: 1
       };
     }
     else {
       newData[name] = {
         ...newData[name],
         ...(price < newData[name].price) && { price },
-        stores: newData[name].stores + 1
+        deals: newData[name].deals + 1
       };
     }
   });

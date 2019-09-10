@@ -26,7 +26,7 @@ const getRowCells = ({
     else if (element === 'delivery') {
       text = (text === 0.00) ? 'Free' : `£${rest.price + text} incl. shipping`;
     }
-    else if (element === 'stores') {
+    else if (element === 'deals') {
       align = 'center';
     }
 
