@@ -49,7 +49,7 @@ const Product = ({
   clearProduct
 }) => {
   useEffect(() => {
-    if (!show) {
+    if (!show && !error) {
       const id = getProduct(location);
 
       fetchProduct(id);
