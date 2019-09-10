@@ -43,13 +43,20 @@ const getProduct = (req, res) => {
         description,
         image,
         range: [lowestPrice, highestPrice],
-        deals: {
+        deals: [
           ...data
-        }
+        ]
       };
 
       res.send({
         product
+      });
+    })
+    .catch(() => {
+      res.send({
+        product: {
+          deals: []
+        }
       });
     });
 };
