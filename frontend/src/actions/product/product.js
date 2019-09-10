@@ -27,19 +27,24 @@ const fetchProduct = (id) => (
       const { history: { currentLocation } } = getState();
 
       if (currentLocation === 'product') {
-        dispatch({
-          type: HIDE_PROGRESS_BAR
-        });
+        const { deals } = product;
 
-        dispatch({
-          type: SHOW_PRODUCT,
-          payload: product
-        });
+        if (deals.length > 0) {
+          dispatch({
+            type: HIDE_PROGRESS_BAR
+          });
+
+          dispatch({
+            type: SHOW_PRODUCT,
+            payload: product
+          });
+        }
+        else {
+          dispatch({
+            type: SHOW_ERROR
+          });
+        }
       }
-    }).catch(() => {
-      dispatch({
-        type: SHOW_ERROR
-      });
     });
   }
 );
