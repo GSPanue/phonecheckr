@@ -1,5 +1,6 @@
 import BaseModel from '../BaseModel';
 import Url from '../Url';
+import Page from '../Page';
 import Brand from '../Brand';
 import Model from '../Model';
 import Supplier from '../Supplier';
@@ -17,6 +18,14 @@ class Product extends BaseModel {
         join: {
           from: 'products.url_id',
           to: 'urls.id'
+        }
+      },
+      pages: {
+        relation: BaseModel.HasOneRelation,
+        modelClass: Page,
+        join: {
+          from: 'products.page_id',
+          to: 'pages.id'
         }
       },
       brands: {
