@@ -5,6 +5,7 @@ const getSearch = (req, res) => {
 
   Product.query()
     .joinEager({
+      pages: true,
       brands: true,
       models: true
     })
@@ -13,6 +14,7 @@ const getSearch = (req, res) => {
     .omit([
       'id',
       'url_id',
+      'page_id',
       'brand_id',
       'model_id',
       'supplier_id',
