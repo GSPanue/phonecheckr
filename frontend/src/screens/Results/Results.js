@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { getQuery, prepareTableData } from '../../helpers';
+import { getQuery, prepareResultsTableData } from '../../helpers';
 import { getNumberOfResults } from './helpers';
 
 import {
@@ -49,7 +49,7 @@ const Results = ({
 
   if (show) {
     if (searchResults) {
-      const preparedData = prepareTableData(searchResults);
+      const preparedData = prepareResultsTableData(searchResults);
       const numberOfResults = getNumberOfResults(preparedData);
 
       return (
