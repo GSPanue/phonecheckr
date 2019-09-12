@@ -1,11 +1,11 @@
 /**
- * Prepares the data for a table.
+ * Prepares the results table data.
  *
  * @param {array} data - The data.
  *
  * @returns {object}
  */
-const prepareTableData = (data) => {
+const prepareResultsTableData = (data) => {
   const newData = {};
 
   data.forEach((product) => {
@@ -43,5 +43,5 @@ const prepareTableData = (data) => {
 };
 
 export {
-  prepareTableData
+  prepareResultsTableData
 };
