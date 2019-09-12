@@ -57,7 +57,8 @@ const prepareProductTableData = (data) => {
       brands: { name: brand },
       models,
       suppliers: { name: supplier },
-      price
+      price,
+      urls: { url }
     } = product;
     const { name: model, colours: { name: colour }, storage_capacities: { size } } = models;
 
@@ -68,7 +69,8 @@ const prepareProductTableData = (data) => {
       name,
       colour,
       size,
-      price
+      price,
+      website: url
     };
   });
 
