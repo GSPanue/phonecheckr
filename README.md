@@ -38,15 +38,15 @@ After generating the frontend production bundle, you can [analyse it](https://gi
 
 1. Create a ``.env`` file in the ``backend`` folder with the following environment variables:
 
-```
-DB_HOST=127.0.0.1
-DB_USERNAME=your_database_username
-DB_PASSWORD=your_database_password
-DB_DATABASE=your_database_name
-```
+    ```
+    DB_HOST=127.0.0.1
+    DB_USERNAME=your_database_username
+    DB_PASSWORD=your_database_password
+    DB_DATABASE=your_database_name
+    ```
 
-1. Initialise the local development server: ``npm run backend:dev``
-2. Go to: ``http://localhost:8080``
+2. Initialise the local development server: ``npm run backend:dev``
+3. Go to: ``http://localhost:8080``
 
 #### Generating the backend production bundle
 
