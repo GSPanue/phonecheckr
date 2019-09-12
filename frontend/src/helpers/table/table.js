@@ -42,6 +42,44 @@ const prepareResultsTableData = (data) => {
   );
 };
 
+/**
+ * Prepares the product table data.
+ *
+ * @param {array} data - The data.
+ *
+ * @returns {object}
+ */
+const prepareProductTableData = (data) => {
+  const newData = {};
+
+  data.forEach((product, index) => {
+    const {
+      brands: { name: brand },
+      models,
+      suppliers: { name: supplier },
+      price
+    } = product;
+    const { name: model, colours: { name: colour }, storage_capacities: { size } } = models;
+
+    const name = `${brand} ${model}`;
+
+    newData[index] = {
+      supplier,
+      name,
+      colour,
+      size,
+      price
+    };
+  });
+
+  return (
+    Object.keys(newData).map((key) => (
+      newData[key]
+    ))
+  );
+};
+
 export {
-  prepareResultsTableData
+  prepareResultsTableData,
+  prepareProductTableData
 };
