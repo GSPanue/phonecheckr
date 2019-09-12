@@ -23,7 +23,7 @@ const ResultsItem = ({
   ...rest
 }) => {
   const cells = useMemo(() => (
-    getRowCells(type, rest)
+    getRowCells(rest)
   ), []);
 
   const handleClick = useCallback(() => (
