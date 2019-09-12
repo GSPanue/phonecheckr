@@ -4,9 +4,6 @@ import {
   SHOW_ERROR
 } from '../../constants';
 
-/**
- * @todo Add properties for product information
- */
 const initialState = {
   show: false,
   image: '',
