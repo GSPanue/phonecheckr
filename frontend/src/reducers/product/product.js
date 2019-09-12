@@ -12,11 +12,8 @@ const initialState = {
   image: '',
   name: '',
   description: '',
-  range: {
-    from: null,
-    to: null
-  },
-  results: [],
+  range: [],
+  deals: [],
   error: false
 };
 
@@ -25,6 +22,7 @@ const product = (state = initialState, action) => {
     case SHOW_PRODUCT:
       return ({
         ...state,
+        ...action.payload,
         show: true
       });
 
@@ -35,11 +33,8 @@ const product = (state = initialState, action) => {
         image: '',
         name: '',
         description: '',
-        range: {
-          from: null,
-          to: null
-        },
-        results: [],
+        range: [],
+        deals: [],
         error: false
       });
 
