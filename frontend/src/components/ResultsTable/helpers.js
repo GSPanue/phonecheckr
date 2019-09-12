@@ -18,12 +18,12 @@ const getTableHead = (type) => {
     columns = ['Name', 'Price', 'Deals'];
   }
   else if (type === 'product') {
-    columns = ['Store', 'Name', 'Price', 'Delivery', 'Stock'];
+    columns = ['Store', 'Name', 'Colour', 'Storage', 'Price'];
   }
 
   return (
     columns.map((column) => {
-      if (column === 'Deals') {
+      if (column === 'Deals' || (column === 'Price' && type === 'product')) {
         return (
           <StyledTableCell key={column} align="center">{column}</StyledTableCell>
         );
