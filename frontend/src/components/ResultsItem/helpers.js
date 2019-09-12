@@ -23,11 +23,8 @@ const getRowCells = ({
     if (element === 'price') {
       text = `£${text}`;
     }
-    else if (element === 'delivery') {
-      text = (text === 0.00) ? 'Free' : `£${rest.price + text} incl. shipping`;
-    }
-    else if (element === 'deals') {
-      align = 'center';
+    else if (element === 'size') {
+      text = `${text}GB`;
     }
 
     const styledTableCellProps = {
