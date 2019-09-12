@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import { getProduct } from '../../helpers';
+import { getProduct, prepareProductTableData } from '../../helpers';
 
 import {
   Wrapper,
@@ -24,17 +24,14 @@ const propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  range: PropTypes.object.isRequired,
-  results: PropTypes.array.isRequired,
+  range: PropTypes.array.isRequired,
+  deals: PropTypes.array.isRequired,
   error: PropTypes.bool.isRequired,
   showBackButton: PropTypes.bool.isRequired,
   fetchProduct: PropTypes.func.isRequired,
   clearProduct: PropTypes.func.isRequired
 };
 
-/**
- * @todo Remove placeholder text
- */
 const Product = ({
   location,
   show,
@@ -42,7 +39,7 @@ const Product = ({
   name,
   description,
   range,
-  results,
+  deals,
   error,
   showBackButton,
   fetchProduct,
@@ -69,6 +66,8 @@ const Product = ({
   }
 
   if (show) {
+    const preparedData = prepareProductTableData(deals);
+
     return (
       <Wrapper>
         <Header />
@@ -79,10 +78,10 @@ const Product = ({
             <TextContainer>
               <Title>{name}</Title>
               <Description>{description}</Description>
-              <Range from={range.from} to={range.to} />
+              <Range from={range[0]} to={range[1]} />
             </TextContainer>
           </InnerContent>
-          <ResultsTable type="product" items={results} />
+          <ResultsTable type="product" items={preparedData} />
         </Content>
       </Wrapper>
     );
