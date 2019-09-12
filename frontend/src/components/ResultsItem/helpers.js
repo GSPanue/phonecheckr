@@ -20,7 +20,10 @@ const getRowCells = ({
     let align;
     const key = shortid.generate();
 
-    if (element === 'price') {
+    if (element === 'deals') {
+      align = 'center';
+    }
+    else if (element === 'price') {
       text = `£${text}`;
     }
     else if (element === 'size') {
