@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { getAPIURL } from '../../helpers';
+import { getAPIURL } from '../../helpers/app';
 
 import {
   SHOW_PROGRESS_BAR,

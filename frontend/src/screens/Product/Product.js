@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
-import { getProduct, prepareProductTableData } from '../../helpers';
+import { getProduct, prepareProductTableData } from '../../helpers/app';
 
 import {
   Wrapper,

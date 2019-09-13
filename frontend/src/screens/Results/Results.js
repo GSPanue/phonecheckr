@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import { getQuery, prepareResultsTableData } from '../../helpers';
+import { getQuery, prepareResultsTableData } from '../../helpers/app';
 import { getNumberOfResults } from './helpers';
 
 import {
