@@ -32,6 +32,10 @@ Note: The bundle will be output to ``frontend/dist/js``.
 
 After generating the frontend production bundle, you can [analyse it](https://github.com/webpack-contrib/webpack-bundle-analyzer#webpack-bundle-analyzer) by running ``npm run frontend:analyse``.
 
+#### Testing
+
+You can run all unit tests for the frontend by running ``npm run frontend:test``.
+
 ## Backend Development
 
 #### Getting started
