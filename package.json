@@ -10,6 +10,7 @@
     "frontend:dev": "cd frontend && npm run start",
     "frontend:build": "cd frontend && npm run build",
     "frontend:analyse": "cd frontend && npm run analyse",
+    "frontend:test": "cd frontend && npm run test",
     "backend:dev": "cd backend && npm start",
     "backend:build": "cd backend && npm run build",
     "backend:analyse": "cd backend && npm run analyse",
