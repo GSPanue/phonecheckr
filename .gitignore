@@ -5,3 +5,7 @@
 # Bundles
 frontend/dist/js
 backend/dist
+
+# Scraper
+.idea/
+*.iml
