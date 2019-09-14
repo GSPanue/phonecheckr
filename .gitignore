@@ -9,3 +9,4 @@ backend/dist
 # Scraper
 .idea/
 *.iml
+target/
