@@ -49,8 +49,24 @@ public class Product implements Serializable {
   private double price;
 
   @ManyToOne
+  @JoinColumn(name = "url_id", insertable = false, updatable = false)
+  private URL url;
+
+  @ManyToOne
+  @JoinColumn(name = "page_id", insertable = false, updatable = false)
+  private Page page;
+
+  @ManyToOne
   @JoinColumn(name = "brand_id", insertable = false, updatable = false)
   private Brand brand;
+
+  @ManyToOne
+  @JoinColumn(name = "model_id", insertable = false, updatable = false)
+  private Model model;
+
+  @ManyToOne
+  @JoinColumn(name = "supplier_id", insertable = false, updatable = false)
+  private Supplier supplier;
 
   /**
    * Gets the id of this Product.
@@ -215,6 +231,42 @@ public class Product implements Serializable {
   }
 
   /**
+   * Gets the url of this Product.
+   *
+   * @return this Product's url.
+   */
+  public URL getUrl() {
+    return url;
+  }
+
+  /**
+   * Sets the url of this Product to the specified url.
+   *
+   * @param url this Product's new url.
+   */
+  public void setUrl(URL url) {
+    this.url = url;
+  }
+
+  /**
+   * Gets the page of this Product.
+   *
+   * @return this Product's page.
+   */
+  public Page getPage() {
+    return page;
+  }
+
+  /**
+   * Sets the page of this Product to the specified page.
+   *
+   * @param page this Product's new page.
+   */
+  public void setPage(Page page) {
+    this.page = page;
+  }
+
+  /**
    * Gets the brand of this Product.
    *
    * @return this Product's brand.
@@ -230,6 +282,42 @@ public class Product implements Serializable {
    */
   public void setBrand(Brand brand) {
     this.brand = brand;
+  }
+
+  /**
+   * Gets the model of this Product.
+   *
+   * @return this Product's model.
+   */
+  public Model getModel() {
+    return model;
+  }
+
+  /**
+   * Sets the model of this Product to the specified model.
+   *
+   * @param model this Product's new model.
+   */
+  public void setModel(Model model) {
+    this.model = model;
+  }
+
+  /**
+   * Gets the supplier of this Product.
+   *
+   * @return this Product's supplier.
+   */
+  public Supplier getSupplier() {
+    return supplier;
+  }
+
+  /**
+   * Sets the supplier of this Product to the specified supplier.
+   *
+   * @param supplier this Product's new supplier.
+   */
+  public void setSupplier(Supplier supplier) {
+    this.supplier = supplier;
   }
 
   /**

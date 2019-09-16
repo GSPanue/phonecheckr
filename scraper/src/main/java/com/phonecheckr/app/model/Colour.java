@@ -1,22 +1,22 @@
 package com.phonecheckr.app.model;
 
-import java.io.Serializable;
+    import java.io.Serializable;
 
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+    import javax.persistence.Id;
+    import javax.persistence.GeneratedValue;
+    import javax.persistence.GenerationType;
+    import javax.persistence.Column;
+    import javax.persistence.Entity;
+    import javax.persistence.Table;
 
 /**
- * Entity class Brand
+ * Entity class Colour
  *
  * @author Gurdev S. Panue
  */
 @Entity
-@Table(name = "brands")
-public class Brand implements Serializable {
+@Table(name = "colours")
+public class Colour implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
@@ -26,36 +26,36 @@ public class Brand implements Serializable {
   private String name;
 
   /**
-   * Gets the id of this Brand.
+   * Gets the id of this Colour.
    *
-   * @return this Brand's id.
+   * @return this Colour's id.
    */
   public int getId() {
     return id;
   }
 
   /**
-   * Sets the id of this Brand to the specified id.
+   * Sets the id of this Colour to the specified id.
    *
-   * @param id this Brand's new id.
+   * @param id this Colour's new id.
    */
   public void setId(int id) {
     this.id = id;
   }
 
   /**
-   * Gets the name of this Brand.
+   * Gets the name of this Colour.
    *
-   * @return this Brand's name.
+   * @return this Colour's name.
    */
   public String getName() {
     return name;
   }
 
   /**
-   * Sets the name of this Brand to the specified name.
+   * Sets the name of this Colour to the specified name.
    *
-   * @param name this Brand's new name.
+   * @param name this Colour's new name.
    */
   public void setName(String name) {
     this.name = name;
@@ -68,7 +68,7 @@ public class Brand implements Serializable {
    */
   @Override
   public String toString() {
-    return "Brand {\n"
+    return "Colour {\n"
         + "\tid: " + getId() + ",\n"
         + "\tname: " + getName() + "\n"
         + "}";

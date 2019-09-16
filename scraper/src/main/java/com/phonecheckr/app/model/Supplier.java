@@ -10,13 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Entity class Brand
+ * Entity class Supplier
  *
  * @author Gurdev S. Panue
  */
 @Entity
-@Table(name = "brands")
-public class Brand implements Serializable {
+@Table(name = "suppliers")
+public class Supplier implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
@@ -26,36 +26,36 @@ public class Brand implements Serializable {
   private String name;
 
   /**
-   * Gets the id of this Brand.
+   * Gets the id of this Supplier.
    *
-   * @return this Brand's id.
+   * @return this Supplier's id.
    */
   public int getId() {
     return id;
   }
 
   /**
-   * Sets the id of this Brand to the specified id.
+   * Sets the id of this Supplier to the specified id.
    *
-   * @param id this Brand's new id.
+   * @param id this Supplier's new id.
    */
   public void setId(int id) {
     this.id = id;
   }
 
   /**
-   * Gets the name of this Brand.
+   * Gets the name of this Supplier.
    *
-   * @return this Brand's name.
+   * @return this Supplier's name.
    */
   public String getName() {
     return name;
   }
 
   /**
-   * Sets the name of this Brand to the specified name.
+   * Sets the name of this Supplier to the specified name.
    *
-   * @param name this Brand's new name.
+   * @param name this Supplier's new name.
    */
   public void setName(String name) {
     this.name = name;
@@ -68,7 +68,7 @@ public class Brand implements Serializable {
    */
   @Override
   public String toString() {
-    return "Brand {\n"
+    return "Supplier {\n"
         + "\tid: " + getId() + ",\n"
         + "\tname: " + getName() + "\n"
         + "}";
