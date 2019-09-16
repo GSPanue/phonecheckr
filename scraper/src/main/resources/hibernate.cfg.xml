@@ -18,6 +18,12 @@
 
         <!-- Mapping files -->
         <mapping class="com.phonecheckr.app.model.Product"/>
+        <mapping class="com.phonecheckr.app.model.URL"/>
+        <mapping class="com.phonecheckr.app.model.Page"/>
         <mapping class="com.phonecheckr.app.model.Brand"/>
+        <mapping class="com.phonecheckr.app.model.Model"/>
+        <mapping class="com.phonecheckr.app.model.Supplier"/>
+        <mapping class="com.phonecheckr.app.model.Colour"/>
+        <mapping class="com.phonecheckr.app.model.StorageCapacity"/>
     </session-factory>
 </hibernate-configuration>
