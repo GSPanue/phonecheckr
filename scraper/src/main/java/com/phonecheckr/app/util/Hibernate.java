@@ -2,6 +2,7 @@ package com.phonecheckr.app.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 /**
  * Utility class Hibernate
@@ -27,6 +28,26 @@ public class Hibernate {
    */
   public static void setSessionFactory(SessionFactory sessionFactory) {
     Hibernate.sessionFactory = sessionFactory;
+  }
+
+  /**
+   * Creates a session factory.
+   */
+  public static void createSessionFactory() {
+    final boolean HAS_NO_SESSION_FACTORY = !hasSessionFactory();
+
+    if (HAS_NO_SESSION_FACTORY) {
+      try {
+        final Configuration configuration = new Configuration();
+
+        // Build and set session factory
+        setSessionFactory(configuration.configure().buildSessionFactory());
+      }
+      catch (Exception exception) {
+        System.out.println("Session factory could not be created.");
+        exception.printStackTrace();
+      }
+    }
   }
 
   /**
