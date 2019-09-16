@@ -17,7 +17,7 @@ import javax.persistence.JoinColumn;
  * @author Gurdev S. Panue
  */
 @Entity
-@Table(name="products")
+@Table(name = "products")
 public class Product implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +49,7 @@ public class Product implements Serializable {
   private double price;
 
   @ManyToOne
-  @JoinColumn(name="brand_id", insertable = false, updatable = false)
+  @JoinColumn(name = "brand_id", insertable = false, updatable = false)
   private Brand brand;
 
   /**

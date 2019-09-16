@@ -15,7 +15,7 @@ import javax.persistence.Table;
  * @author Gurdev S. Panue
  */
 @Entity
-@Table(name="brands")
+@Table(name = "brands")
 public class Brand implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
