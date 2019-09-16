@@ -241,14 +241,14 @@ public class Product implements Serializable {
   public String toString() {
     return "Product {\n"
         + "\tid: " + getId() + ",\n"
-        + "\turl_id: " + urlId + ",\n"
-        + "\tpage_id: " + pageId + ",\n"
-        + "\tbrand_id: " + brandId + ",\n"
-        + "\tmodel_id " + modelId + ",\n"
-        + "\tsupplier_id: " + supplierId + ",\n"
-        + "\timage: " + image + ",\n"
-        + "\tdescription: " + description + ",\n"
-        + "\tprice: " + price + "\n"
+        + "\turl_id: " + getUrlId() + ",\n"
+        + "\tpage_id: " + getPageId() + ",\n"
+        + "\tbrand_id: " + getBrandId() + ",\n"
+        + "\tmodel_id " + getModelId() + ",\n"
+        + "\tsupplier_id: " + getSupplierId() + ",\n"
+        + "\timage: " + getImage() + ",\n"
+        + "\tdescription: " + getDescription() + ",\n"
+        + "\tprice: " + getPrice() + "\n"
         + "}";
   }
 }

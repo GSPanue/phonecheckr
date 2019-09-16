@@ -69,7 +69,7 @@ public class Brand implements Serializable {
   public String toString() {
     return "Brand {\n"
         + "\tid: " + getId() + ",\n"
-        + "\tname: " + name + "\n"
+        + "\tname: " + getName() + "\n"
         + "}";
   }
 }
