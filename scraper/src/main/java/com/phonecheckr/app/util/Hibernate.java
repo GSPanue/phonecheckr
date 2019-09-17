@@ -56,7 +56,7 @@ public class Hibernate {
    * @return whether sessionFactory has been initialised or not.
    */
   public static boolean hasSessionFactory() {
-    return sessionFactory != null;
+    return getSessionFactory() != null;
   }
 
   /**
