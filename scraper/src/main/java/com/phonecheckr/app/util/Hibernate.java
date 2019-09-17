@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
  * @author Gurdev S. Panue
  */
 public class Hibernate {
-  private static SessionFactory sessionFactory = null;
+  private static SessionFactory sessionFactory;
 
   /**
    * Gets the session factory.
