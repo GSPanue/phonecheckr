@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Entity class URL
+ * Entity class Url
  *
  * @author Gurdev S. Panue
  */
