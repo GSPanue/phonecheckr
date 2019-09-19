@@ -1,9 +1,9 @@
 package com.phonecheckr.app;
 
-import com.phonecheckr.app.util.Hibernate;
-
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
+
+import com.phonecheckr.app.util.Hibernate;
 
 /**
  * Spring Configuration class AppConfig
