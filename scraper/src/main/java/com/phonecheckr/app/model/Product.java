@@ -50,7 +50,7 @@ public class Product implements Serializable {
 
   @ManyToOne
   @JoinColumn(name = "url_id", insertable = false, updatable = false)
-  private URL url;
+  private Url url;
 
   @ManyToOne
   @JoinColumn(name = "page_id", insertable = false, updatable = false)
@@ -235,7 +235,7 @@ public class Product implements Serializable {
    *
    * @return this Product's url.
    */
-  public URL getUrl() {
+  public Url getUrl() {
     return url;
   }
 
@@ -244,7 +244,7 @@ public class Product implements Serializable {
    *
    * @param url this Product's new url.
    */
-  public void setUrl(URL url) {
+  public void setUrl(Url url) {
     this.url = url;
   }
 
