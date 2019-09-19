@@ -60,11 +60,11 @@ public class Hibernate {
   }
 
   /**
-   * Gets the current session.
+   * Creates a new session.
    *
-   * @return the current session.
+   * @return the session.
    */
-  public static Session getCurrentSession() {
+  public static Session createSession() {
     return getSessionFactory().getCurrentSession();
   }
 
