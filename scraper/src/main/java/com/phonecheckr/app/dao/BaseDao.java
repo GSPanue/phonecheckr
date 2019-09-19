@@ -13,45 +13,45 @@ abstract class BaseDao<E, S> {
   /**
    * Stores an entity.
    *
-   * @param e the entity.
+   * @param entity the entity.
    */
-  public void save(E e) {
+  public void save(E entity) {
     Session session = Hibernate.createSession();
 
     session.beginTransaction();
-    session.save(e);
+    session.save(entity);
     session.getTransaction().commit();
   }
 
   /**
    * Removes an entity.
    *
-   * @param e the entity.
+   * @param entity the entity.
    */
-  public void remove(E e) {
+  public void remove(E entity) {
     Session session = Hibernate.createSession();
 
     session.beginTransaction();
-    session.remove(e);
+    session.remove(entity);
     session.getTransaction().commit();
   }
 
   /**
    * Concrete method for finding an entity.
    *
-   * @param e the entity.
+   * @param entity the entity.
    *
    * @return an entity.
    */
-  abstract E find(E e);
+  abstract E find(E entity);
 
   /**
    * Concrete method for finding an entity by key and value.
    *
-   * @param k the key.
-   * @param v the value.
+   * @param key the key.
+   * @param value the value.
    *
    * @return an entity.
    */
-  abstract E find(S k, S v);
+  abstract E find(S key, S value);
 }
