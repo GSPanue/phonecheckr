@@ -52,6 +52,8 @@ public class ModelDao extends BaseDao<Model, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find model.");
         exception.printStackTrace();
       }
@@ -90,6 +92,8 @@ public class ModelDao extends BaseDao<Model, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find model.");
         exception.printStackTrace();
       }

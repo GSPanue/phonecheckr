@@ -50,6 +50,8 @@ public class UrlDao extends BaseDao<Url, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find url.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class UrlDao extends BaseDao<Url, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find url.");
         exception.printStackTrace();
       }

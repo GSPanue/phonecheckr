@@ -50,6 +50,8 @@ public class SupplierDao extends BaseDao<Supplier, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find supplier.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class SupplierDao extends BaseDao<Supplier, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find supplier.");
         exception.printStackTrace();
       }

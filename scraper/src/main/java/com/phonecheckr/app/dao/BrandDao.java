@@ -50,6 +50,8 @@ public class BrandDao extends BaseDao<Brand, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find brand.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class BrandDao extends BaseDao<Brand, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find brand.");
         exception.printStackTrace();
       }

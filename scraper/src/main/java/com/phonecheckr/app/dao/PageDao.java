@@ -50,6 +50,8 @@ public class PageDao extends BaseDao<Page, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find page.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class PageDao extends BaseDao<Page, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find page.");
         exception.printStackTrace();
       }

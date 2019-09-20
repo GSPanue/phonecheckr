@@ -57,6 +57,8 @@ public class ProductDao extends BaseDao<Product, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find product.");
         exception.printStackTrace();
       }
@@ -95,6 +97,8 @@ public class ProductDao extends BaseDao<Product, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find product.");
         exception.printStackTrace();
       }

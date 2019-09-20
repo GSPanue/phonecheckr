@@ -50,6 +50,8 @@ public class StorageCapacityDao extends BaseDao<StorageCapacity, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find storage capacity.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class StorageCapacityDao extends BaseDao<StorageCapacity, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find storage capacity.");
         exception.printStackTrace();
       }

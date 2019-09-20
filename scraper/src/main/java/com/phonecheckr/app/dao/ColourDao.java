@@ -50,6 +50,8 @@ public class ColourDao extends BaseDao<Colour, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find colour.");
         exception.printStackTrace();
       }
@@ -88,6 +90,8 @@ public class ColourDao extends BaseDao<Colour, String> {
         return result;
       }
       catch (Exception exception) {
+        session.getTransaction().rollback();
+
         System.out.println("Unable to find colour.");
         exception.printStackTrace();
       }
