@@ -28,7 +28,7 @@ import com.phonecheckr.app.dao.StorageCapacityDao;
  *
  * @author Gurdev S. Panue
  */
-abstract class BaseScraper {
+abstract class BaseScraper extends Thread {
   private String supplier;
   private String searchPage;
   private String productSelector;
@@ -261,7 +261,7 @@ abstract class BaseScraper {
   /**
    * Starts scraping the specified website.
    */
-  public void start() {
+  private void startScraping() {
     try {
       // Get first page
       Document document = Jsoup.connect(getSearchPage()).get();
@@ -459,6 +459,14 @@ abstract class BaseScraper {
    */
   private boolean hasNextPage(String url) {
     return (url != null) && !(url.isEmpty());
+  }
+
+  /**
+   * Starts scraping.
+   */
+  @Override
+  public void run() {
+    startScraping();
   }
 
   /**
