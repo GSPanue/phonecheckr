@@ -23,8 +23,11 @@ public class AppConfig {
     Hibernate.createSessionFactory();
   }
 
+  /**
+   * Starts the web scraper.
+   */
   @Bean
-  public void start() {
+  public void startScraping() {
     Scanner scanner = new Scanner(System.in);
     CurrysScraper currysScraper = new CurrysScraper();
 
