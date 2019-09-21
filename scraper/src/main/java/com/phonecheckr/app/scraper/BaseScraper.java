@@ -5,8 +5,23 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.phonecheckr.app.dao.UrlDao;
+import com.phonecheckr.app.model.Product;
 import com.phonecheckr.app.model.Url;
+import com.phonecheckr.app.model.Page;
+import com.phonecheckr.app.model.Brand;
+import com.phonecheckr.app.model.Model;
+import com.phonecheckr.app.model.Supplier;
+import com.phonecheckr.app.model.Colour;
+import com.phonecheckr.app.model.StorageCapacity;
+
+import com.phonecheckr.app.dao.ProductDao;
+import com.phonecheckr.app.dao.UrlDao;
+import com.phonecheckr.app.dao.PageDao;
+import com.phonecheckr.app.dao.BrandDao;
+import com.phonecheckr.app.dao.ModelDao;
+import com.phonecheckr.app.dao.SupplierDao;
+import com.phonecheckr.app.dao.ColourDao;
+import com.phonecheckr.app.dao.StorageCapacityDao;
 
 /**
  * Abstract class BaseScraper
@@ -248,30 +263,69 @@ abstract class BaseScraper {
    */
   public void start() {
     try {
+      // Get first page
       Document document = Jsoup.connect(getSearchPage()).get();
       boolean hasNextPage = true;
 
       while(hasNextPage) {
+        // Get all products on the page
         Elements products = document.select(getProductSelector());
 
         for (Element product :  products) {
           final boolean IS_NOT_DUPLICATE = isNotDuplicate(product, getUrlSelector());
 
           if (IS_NOT_DUPLICATE) {
-            final String supplier = getSupplier();
-            final String url = getProductUrl(product);
-            final String page = getProductPage(product);
-            final String brand = getProductBrand(product);
-            final String model = getProductModel(product);
-            final String colour = getProductColour(product);
-            final String storageCapacity = getProductStorageCapacity(product);
-            final String description = getProductDescription(product);
-            final String price = getProductPrice(product);
-            final String image = getProductImage(product);
+            Product productModel = new Product();
+            Url urlModel = new Url();
+            Page pageModel = new Page();
+            Brand brandModel = new Brand();
+            Model modelModel = new Model();
+            Supplier supplierModel = new Supplier();
+            Colour colourModel = new Colour();
+            StorageCapacity storageCapacityModel = new StorageCapacity();
 
-            /*
-             * todo: Store data in the database.
-             */
+            ProductDao productDao = new ProductDao();
+            UrlDao urlDao = new UrlDao();
+            PageDao pageDao = new PageDao();
+            BrandDao brandDao = new BrandDao();
+            ModelDao modelDao = new ModelDao();
+            SupplierDao supplierDao = new SupplierDao();
+            ColourDao colourDao = new ColourDao();
+            StorageCapacityDao storageCapacityDao = new StorageCapacityDao();
+
+            try {
+              // Hydrate models
+              productModel.setImage(getProductImage(product));
+              productModel.setDescription(getProductDescription(product));
+              productModel.setPrice(Double.parseDouble(getProductPrice(product).replaceAll(",", "")));
+              urlModel.setUrl(getProductUrl(product));
+              pageModel.setName(getProductPage(product));
+              brandModel.setName(getProductBrand(product));
+              modelModel.setName(getProductModel(product));
+              supplierModel.setName(getSupplier());
+              colourModel.setName(getProductColour(product));
+              storageCapacityModel.setSize(Integer.parseInt(getProductStorageCapacity(product)));
+            }
+            catch (Exception exception) {
+              System.out.println("Skipping product.");
+              exception.printStackTrace();
+
+              continue;
+            }
+
+            // Set ids
+            modelModel.setColourId(colourDao.findOrSave(colourModel).getId());
+            modelModel.setStorageCapacityId(storageCapacityDao.findOrSave(storageCapacityModel).getId());
+            productModel.setUrlId(urlDao.findOrSave(urlModel).getId());
+            productModel.setPageId(pageDao.findOrSave(pageModel).getId());
+            productModel.setBrandId(brandDao.findOrSave(brandModel).getId());
+            productModel.setModelId(modelDao.findOrSave(modelModel).getId());
+            productModel.setSupplierId(supplierDao.findOrSave(supplierModel).getId());
+
+            // Save product
+            productDao.save(productModel);
+            System.out.println("The following product was saved in the database:");
+            System.out.println(productModel.toString());
           }
         }
 
@@ -383,30 +437,17 @@ abstract class BaseScraper {
   abstract String getNextPage(Document document);
 
   /**
-   * Finds a url.
-   *
-   * @param url the url.
-   *
-   * @return the url.
-   */
-  private Url findUrl(String url) {
-    UrlDao urlDao = new UrlDao();
-
-    return urlDao.find("url", url);
-  }
-
-  /**
    * Checks if a product is not a duplicate.
    *
    * @param product the product.
-   * @param urlSelector - the url selector.
+   * @param urlSelector the url selector.
    *
    * @return if a product is not a duplicate.
    */
   private boolean isNotDuplicate(Element product, String urlSelector) {
     final String URL = product.select(urlSelector).attr("href");
 
-    return findUrl(URL) == null;
+    return (new UrlDao().find("url", URL)) == null;
   }
 
   /**

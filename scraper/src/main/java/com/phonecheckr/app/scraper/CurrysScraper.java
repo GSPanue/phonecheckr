@@ -66,7 +66,9 @@ public class CurrysScraper extends BaseScraper {
     model = new ArrayList<>(Arrays.asList(model.get(0).split("&")));
 
     // Return page name
-    return model.get(0).toLowerCase().trim().replaceAll(" ", "-");
+    String modelName = model.get(0).toLowerCase().replaceAll("(?i)SIM FREE", "");
+
+    return modelName.trim().replaceAll(" ", "-");
   }
 
   /**
@@ -95,7 +97,7 @@ public class CurrysScraper extends BaseScraper {
     model = new ArrayList<>(Arrays.asList(model.get(0).split("&")));
 
     // Return model name
-    return model.get(0).trim();
+    return model.get(0).replaceAll("(?i)SIM FREE", "").trim();
   }
 
   /**
@@ -206,6 +208,13 @@ public class CurrysScraper extends BaseScraper {
     return product.select(getPriceSelector()).text().replace("£", "");
   }
 
+  /**
+   * Gets the next page url.
+   *
+   * @param document the current page.
+   *
+   * @return the next page url.
+   */
   @Override
   String getNextPage(Document document) {
     return document.select(getNextPageSelector()).attr("href");
