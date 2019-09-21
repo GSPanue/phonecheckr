@@ -13,6 +13,10 @@ const InnerContent = styled.div`
   align-items: center;
 `;
 
+const StyledImg = styled.img`
+  max-width: 300px;
+`;
+
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,6 +40,7 @@ const Description = styled.span`
 export {
   Wrapper,
   InnerContent,
+  StyledImg,
   TextContainer,
   Title,
   Description

@@ -7,6 +7,7 @@ import { getProduct, prepareProductTableData } from '../../helpers/app';
 import {
   Wrapper,
   InnerContent,
+  StyledImg,
   TextContainer,
   Title,
   Description
@@ -74,7 +75,7 @@ const Product = ({
         <Content>
           {(showBackButton) && <BackButton />}
           <InnerContent>
-            <img height="300" width="300" src={image} alt={name} />
+            <StyledImg src={image} alt={name} />
             <TextContainer>
               <Title>{name}</Title>
               <Description>{description}</Description>
