@@ -99,4 +99,24 @@ public class ColourDao extends BaseDao<Colour, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a colour.
+   *
+   * @param colour the colour.
+   *
+   * @return the colour.
+   */
+  @Override
+  public Colour findOrSave(Colour colour) {
+    colour.setId(find(colour).getId());
+
+    final boolean HAS_NOT_FOUND_COLOUR = colour.getId() == 0;
+
+    if (HAS_NOT_FOUND_COLOUR) {
+      save(colour);
+    }
+
+    return  colour;
+  }
 }

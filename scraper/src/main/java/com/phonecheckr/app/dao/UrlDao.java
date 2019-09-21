@@ -99,4 +99,24 @@ public class UrlDao extends BaseDao<Url, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a url.
+   *
+   * @param url the url.
+   *
+   * @return the url.
+   */
+  @Override
+  public Url findOrSave(Url url) {
+    url.setId(find(url).getId());
+
+    final boolean HAS_NOT_FOUND_URL = url.getId() == 0;
+
+    if (HAS_NOT_FOUND_URL) {
+      save(url);
+    }
+
+    return  url;
+  }
 }

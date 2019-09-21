@@ -99,4 +99,24 @@ public class SupplierDao extends BaseDao<Supplier, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a supplier.
+   *
+   * @param supplier the supplier.
+   *
+   * @return the supplier.
+   */
+  @Override
+  public Supplier findOrSave(Supplier supplier) {
+    supplier.setId(find(supplier).getId());
+
+    final boolean HAS_NOT_FOUND_SUPPLIER = supplier.getId() == 0;
+
+    if (HAS_NOT_FOUND_SUPPLIER) {
+      save(supplier);
+    }
+
+    return  supplier;
+  }
 }

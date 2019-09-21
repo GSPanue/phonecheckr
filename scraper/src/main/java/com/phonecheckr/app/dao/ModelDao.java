@@ -101,4 +101,24 @@ public class ModelDao extends BaseDao<Model, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a model.
+   *
+   * @param model the model.
+   *
+   * @return the model.
+   */
+  @Override
+  public Model findOrSave(Model model) {
+    model.setId(find(model).getId());
+
+    final boolean HAS_NOT_FOUND_MODEL = model.getId() == 0;
+
+    if (HAS_NOT_FOUND_MODEL) {
+      save(model);
+    }
+
+    return  model;
+  }
 }

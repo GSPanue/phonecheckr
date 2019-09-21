@@ -106,4 +106,24 @@ public class ProductDao extends BaseDao<Product, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a product.
+   *
+   * @param product the product.
+   *
+   * @return the product.
+   */
+  @Override
+  public Product findOrSave(Product product) {
+    product.setId(find(product).getId());
+
+    final boolean HAS_NOT_FOUND_PRODUCT = product.getId() == 0;
+
+    if (HAS_NOT_FOUND_PRODUCT) {
+      save(product);
+    }
+
+    return  product;
+  }
 }

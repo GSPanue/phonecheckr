@@ -99,4 +99,24 @@ public class PageDao extends BaseDao<Page, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a page.
+   *
+   * @param page the page.
+   *
+   * @return the page.
+   */
+  @Override
+  public Page findOrSave(Page page) {
+    page.setId(find(page).getId());
+
+    final boolean HAS_NOT_FOUND_PAGE = page.getId() == 0;
+
+    if (HAS_NOT_FOUND_PAGE) {
+      save(page);
+    }
+
+    return  page;
+  }
 }

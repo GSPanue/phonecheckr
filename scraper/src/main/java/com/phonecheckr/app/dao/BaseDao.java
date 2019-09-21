@@ -54,4 +54,13 @@ abstract class BaseDao<E, S> {
    * @return an entity.
    */
   abstract E find(S key, S value);
+
+  /**
+   * Concrete method for finding or saving an entity.
+   *
+   * @param entity the entity.
+   *
+   * @return an entity.
+   */
+  abstract E findOrSave(E entity);
 }

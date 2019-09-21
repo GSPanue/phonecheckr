@@ -99,4 +99,24 @@ public class StorageCapacityDao extends BaseDao<StorageCapacity, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a storage capacity.
+   *
+   * @param storageCapacity the storage capacity.
+   *
+   * @return the storage capacity.
+   */
+  @Override
+  public StorageCapacity findOrSave(StorageCapacity storageCapacity) {
+    storageCapacity.setId(find(storageCapacity).getId());
+
+    final boolean HAS_NOT_FOUND_STORAGE_CAPACITY = storageCapacity.getId() == 0;
+
+    if (HAS_NOT_FOUND_STORAGE_CAPACITY) {
+      save(storageCapacity);
+    }
+
+    return  storageCapacity;
+  }
 }

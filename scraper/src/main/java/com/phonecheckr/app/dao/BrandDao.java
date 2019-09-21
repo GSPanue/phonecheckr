@@ -99,4 +99,24 @@ public class BrandDao extends BaseDao<Brand, String> {
 
     return null;
   }
+
+  /**
+   * Finds or saves a brand.
+   *
+   * @param brand the brand.
+   *
+   * @return the brand.
+   */
+  @Override
+  public Brand findOrSave(Brand brand) {
+    brand.setId(find(brand).getId());
+
+    final boolean HAS_NOT_FOUND_BRAND = brand.getId() == 0;
+
+    if (HAS_NOT_FOUND_BRAND) {
+      save(brand);
+    }
+
+    return  brand;
+  }
 }
