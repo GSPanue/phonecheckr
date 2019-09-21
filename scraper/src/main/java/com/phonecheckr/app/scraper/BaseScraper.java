@@ -25,6 +25,7 @@ abstract class BaseScraper {
   private String imageSelector;
   private String descriptionSelector;
   private String priceSelector;
+  private String nextPageSelector;
 
   /**
    * Gets the supplier of this BaseScraper.
@@ -225,44 +226,63 @@ abstract class BaseScraper {
   }
 
   /**
+   * Gets the next page selector of this BaseScraper.
+   *
+   * @return this BaseScraper's next page selector.
+   */
+  String getNextPageSelector() {
+    return nextPageSelector;
+  }
+
+  /**
+   * Sets the next page selector of this BaseScraper to the specified next page selector.
+   *
+   * @param nextPageSelector this BaseScraper's new next page selector.
+   */
+  void setNextPageSelector(String nextPageSelector) {
+    this.nextPageSelector = nextPageSelector;
+  }
+
+  /**
    * Starts scraping the specified website.
    */
   public void start() {
-    Document document;
-
     try {
-      document = Jsoup.connect(getSearchPage()).get();
+      Document document = Jsoup.connect(getSearchPage()).get();
+      boolean hasNextPage = true;
 
-      Elements products = document.select(getProductSelector());
+      while(hasNextPage) {
+        Elements products = document.select(getProductSelector());
 
-      for (Element product :  products) {
-        final boolean IS_NOT_DUPLICATE = isNotDuplicate(product, getUrlSelector());
+        for (Element product :  products) {
+          final boolean IS_NOT_DUPLICATE = isNotDuplicate(product, getUrlSelector());
 
-        if (IS_NOT_DUPLICATE) {
-          final String supplier = getSupplier();
-          final String url = getProductUrl(product);
-          final String page = getProductPage(product);
-          final String brand = getProductBrand(product);
-          final String model = getProductModel(product);
-          final String colour = getProductColour(product);
-          final String storageCapacity = getProductStorageCapacity(product);
-          final String description = getProductDescription(product);
-          final String price = getProductPrice(product);
-          final String image = getProductImage(Jsoup.connect(url).get());
+          if (IS_NOT_DUPLICATE) {
+            final String supplier = getSupplier();
+            final String url = getProductUrl(product);
+            final String page = getProductPage(product);
+            final String brand = getProductBrand(product);
+            final String model = getProductModel(product);
+            final String colour = getProductColour(product);
+            final String storageCapacity = getProductStorageCapacity(product);
+            final String description = getProductDescription(product);
+            final String price = getProductPrice(product);
+            final String image = getProductImage(product);
 
-          /*
-           * todo: Store data in the database.
-           */
-          System.out.println(supplier);
-          System.out.println(url);
-          System.out.println(page);
-          System.out.println(brand);
-          System.out.println(model);
-          System.out.println(colour);
-          System.out.println(storageCapacity);
-          System.out.println(description);
-          System.out.println(price);
-          System.out.println(image);
+            /*
+             * todo: Store data in the database.
+             */
+          }
+        }
+
+        final String nextPage = getNextPage(document);
+
+        if (hasNextPage(nextPage)) {
+          // Get next page
+          document = Jsoup.connect(nextPage).get();
+        }
+        else {
+          hasNextPage = false;
         }
       }
     }
@@ -354,6 +374,15 @@ abstract class BaseScraper {
   abstract String getProductPrice(Element product);
 
   /**
+   * Concrete method for getting the next page url.
+   *
+   * @param document the current page.
+   *
+   * @return the next page url.
+   */
+  abstract String getNextPage(Document document);
+
+  /**
    * Finds a url.
    *
    * @param url the url.
@@ -374,10 +403,21 @@ abstract class BaseScraper {
    *
    * @return if a product is not a duplicate.
    */
-  boolean isNotDuplicate(Element product, String urlSelector) {
+  private boolean isNotDuplicate(Element product, String urlSelector) {
     final String URL = product.select(urlSelector).attr("href");
 
     return findUrl(URL) == null;
+  }
+
+  /**
+   * Checks if a next page exists.
+   *
+   * @param url the next page url.
+   *
+   * @return if a next page exists.
+   */
+  private boolean hasNextPage(String url) {
+    return (url != null) && !(url.isEmpty());
   }
 
   /**
@@ -397,7 +437,8 @@ abstract class BaseScraper {
         + "\tcolour_selector: " + getColourSelector() + ",\n"
         + "\tstorage_capacity_selector: " + getStorageCapacitySelector() + ",\n"
         + "\timage_selector: " + getImageSelector() + ",\n"
-        + "\tprice_selector: " + getPriceSelector() + "\n"
+        + "\tprice_selector: " + getPriceSelector() + ",\n"
+        + "\tnext_page_selector: " + getNextPageSelector() + "\n"
         + "}";
   }
 }

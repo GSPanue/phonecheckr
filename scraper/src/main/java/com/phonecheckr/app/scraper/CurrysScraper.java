@@ -1,5 +1,7 @@
 package com.phonecheckr.app.scraper;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class CurrysScraper extends BaseScraper {
     setImageSelector("div.swiper-slide > a");
     setDescriptionSelector("ul.productDescription > li");
     setPriceSelector("strong.price");
+    setNextPageSelector("ul.pagination > li > a[title=next]");
   }
 
   /**
@@ -152,7 +155,21 @@ public class CurrysScraper extends BaseScraper {
    */
   @Override
   String getProductImage(Element product) {
-    return product.select(getImageSelector()).first().attr("href");
+    final String productUrl = product.select(getUrlSelector()).attr("href");
+
+    try {
+      // Go to product page
+      Document document = Jsoup.connect(productUrl).get();
+
+      // Return product image
+      return document.select(getImageSelector()).first().attr("href");
+    }
+    catch (Exception exception) {
+      System.out.println("Could not get product image.");
+      exception.printStackTrace();
+    }
+
+    return null;
   }
 
   /**
@@ -187,5 +204,10 @@ public class CurrysScraper extends BaseScraper {
   @Override
   String getProductPrice(Element product) {
     return product.select(getPriceSelector()).text().replace("£", "");
+  }
+
+  @Override
+  String getNextPage(Document document) {
+    return document.select(getNextPageSelector()).attr("href");
   }
 }
