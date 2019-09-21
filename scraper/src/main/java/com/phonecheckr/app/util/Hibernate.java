@@ -73,9 +73,8 @@ public class Hibernate {
    */
   public static void destroySessionFactory() {
     try {
-      // Destroy session factory and set sessionFactory to null afterwards
+      // Destroy session factory
       sessionFactory.close();
-      setSessionFactory(null);
     }
     catch (Exception exception) {
       System.out.println("Failed to destroy session factory.");
