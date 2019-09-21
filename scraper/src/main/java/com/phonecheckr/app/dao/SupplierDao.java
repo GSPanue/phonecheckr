@@ -57,7 +57,7 @@ public class SupplierDao extends BaseDao<Supplier, String> {
       }
     }
 
-    return null;
+    return supplier;
   }
 
   /**

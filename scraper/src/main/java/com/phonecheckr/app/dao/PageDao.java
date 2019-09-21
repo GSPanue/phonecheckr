@@ -57,7 +57,7 @@ public class PageDao extends BaseDao<Page, String> {
       }
     }
 
-    return null;
+    return page;
   }
 
   /**

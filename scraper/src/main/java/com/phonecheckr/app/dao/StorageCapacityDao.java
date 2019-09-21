@@ -57,7 +57,7 @@ public class StorageCapacityDao extends BaseDao<StorageCapacity, String> {
       }
     }
 
-    return null;
+    return storageCapacity;
   }
 
   /**

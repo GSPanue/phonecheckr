@@ -57,7 +57,7 @@ public class BrandDao extends BaseDao<Brand, String> {
       }
     }
 
-    return null;
+    return brand;
   }
 
   /**

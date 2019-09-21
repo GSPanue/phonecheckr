@@ -64,7 +64,7 @@ public class ProductDao extends BaseDao<Product, String> {
       }
     }
 
-    return null;
+    return product;
   }
 
   /**

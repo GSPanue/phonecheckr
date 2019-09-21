@@ -57,7 +57,7 @@ public class ColourDao extends BaseDao<Colour, String> {
       }
     }
 
-    return null;
+    return colour;
   }
 
   /**

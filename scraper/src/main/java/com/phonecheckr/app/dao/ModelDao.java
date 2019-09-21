@@ -59,7 +59,7 @@ public class ModelDao extends BaseDao<Model, String> {
       }
     }
 
-    return null;
+    return model;
   }
 
   /**

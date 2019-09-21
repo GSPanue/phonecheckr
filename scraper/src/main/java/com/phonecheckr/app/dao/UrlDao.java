@@ -57,7 +57,7 @@ public class UrlDao extends BaseDao<Url, String> {
       }
     }
 
-    return null;
+    return url;
   }
 
   /**
