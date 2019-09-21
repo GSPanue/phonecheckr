@@ -20,6 +20,7 @@ const StyledImg = styled.img`
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 25px;
 `;
 
 const Title = styled.span`
