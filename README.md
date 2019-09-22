@@ -11,7 +11,16 @@ A single-page application for comparing mobile phone deals
 
 ## Demo
 
-1. Generate the frontend and backend production bundles: ``npm run build``
+1. Import ``mysql_dump.sql`` into your database
+2. Create a ``.env`` file in the ``backend`` folder with the following environment variables:
+
+    ```
+    DB_HOST=127.0.0.1
+    DB_USERNAME=your_database_username
+    DB_PASSWORD=your_database_password
+    DB_DATABASE=your_database_name
+    ```
+3. Generate the frontend and backend production bundles: ``npm run build``
 2. Initialise the server: ``npm start``
 3. Go to: ``http://localhost:8080``
 
@@ -40,7 +49,8 @@ You can run all unit tests for the frontend by running ``npm run frontend:test``
 
 #### Getting started
 
-1. Create a ``.env`` file in the ``backend`` folder with the following environment variables:
+1. Import ``mysql_dump.sql`` into your database
+2. Create a ``.env`` file in the ``backend`` folder with the following environment variables:
 
     ```
     DB_HOST=127.0.0.1
@@ -49,8 +59,8 @@ You can run all unit tests for the frontend by running ``npm run frontend:test``
     DB_DATABASE=your_database_name
     ```
 
-2. Initialise the local development server: ``npm run backend:dev``
-3. Go to: ``http://localhost:8080``
+3. Initialise the local development server: ``npm run backend:dev``
+4. Go to: ``http://localhost:8080``
 
 #### Generating the backend production bundle
 
