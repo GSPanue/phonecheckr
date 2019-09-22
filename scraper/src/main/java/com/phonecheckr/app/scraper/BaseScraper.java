@@ -329,11 +329,11 @@ abstract class BaseScraper extends Thread {
           }
         }
 
-        final String nextPage = getNextPage(document);
+        final String NEXT_PAGE = getNextPage(document);
 
-        if (hasNextPage(nextPage)) {
+        if (hasNextPage(NEXT_PAGE)) {
           // Get next page
-          document = Jsoup.connect(nextPage).get();
+          document = Jsoup.connect(NEXT_PAGE).get();
         }
         else {
           hasNextPage = false;
