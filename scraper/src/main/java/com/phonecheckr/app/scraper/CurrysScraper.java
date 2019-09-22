@@ -50,9 +50,9 @@ public class CurrysScraper extends BaseScraper {
 
     model = new ArrayList<>(Arrays.asList(model.get(0).split("&")));
 
-    // Return page name
     String modelName = model.get(0).toLowerCase().replaceAll("(?i)SIM FREE", "");
 
+    // Return page name
     return modelName.trim().replaceAll(" ", "-");
   }
 
@@ -142,13 +142,13 @@ public class CurrysScraper extends BaseScraper {
    */
   @Override
   String getProductImage(Element product) {
-    final String productUrl = product.select(getUrlSelector()).attr("href");
+    final String PRODUCT_URL = product.select(getUrlSelector()).attr("href");
 
     try {
       // Go to product page
-      Document document = Jsoup.connect(productUrl).get();
+      Document document = Jsoup.connect(PRODUCT_URL).get();
 
-      // Return product image
+      // Return image
       return document.select(getImageSelector()).first().attr("href");
     }
     catch (Exception exception) {
