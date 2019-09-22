@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.phonecheckr.app.util.Hibernate;
 import com.phonecheckr.app.scraper.CurrysScraper;
+import com.phonecheckr.app.scraper.BuyMobilesScraper;
 
 /**
  * Spring Configuration class AppConfig
@@ -32,9 +33,11 @@ public class AppConfig {
 
     Scanner scanner = new Scanner(System.in);
     CurrysScraper currysScraper = createCurrysScraper();
+    BuyMobilesScraper buyMobilesScraper = createBuyMobilesScraper();
 
-    // Start scraper(s)
+    // Start scraper
     currysScraper.start();
+    buyMobilesScraper.start();
 
     String input = scanner.nextLine();
 
@@ -72,5 +75,30 @@ public class AppConfig {
     currysScraper.setNextPageSelector("ul.pagination > li > a[title=next]");
 
     return currysScraper;
+  }
+
+  /**
+   * Creates the Buy Mobiles scraper.
+   *
+   * @return the Buy Mobiles scraper.
+   */
+  @Bean
+  public BuyMobilesScraper createBuyMobilesScraper() {
+    BuyMobilesScraper buyMobilesScraper = new BuyMobilesScraper();
+
+    buyMobilesScraper.setSupplier("Buy Mobiles");
+    buyMobilesScraper.setSearchPage("https://www.buymobiles.net/sim-free#manu=&maxprice=999&sort=alpha_a_z");
+    buyMobilesScraper.setProductSelector("div.handset.clearfix");
+    buyMobilesScraper.setUrlSelector("div.handset-info > div.btn > a");
+    buyMobilesScraper.setBrandSelector("div.handsetTop-info > div > meta[itemprop=brand]");
+    buyMobilesScraper.setModelSelector("div.handsetTop-info > h1");
+    buyMobilesScraper.setColourSelector("div.handset-select.only > div > div > p.desktop");
+    buyMobilesScraper.setStorageCapacitySelector("div.col-md-3.col-xs-6.spec-section");
+    buyMobilesScraper.setImageSelector("div.handset-chosen > a");
+    buyMobilesScraper.setDescriptionSelector("div.handsetTop-info > p.description");
+    buyMobilesScraper.setPriceSelector("p.sim-free");
+    buyMobilesScraper.setNextPageSelector(null);
+
+    return buyMobilesScraper;
   }
 }
