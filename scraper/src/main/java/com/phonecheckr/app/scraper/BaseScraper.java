@@ -47,7 +47,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's supplier.
    */
-  String getSupplier() {
+  public String getSupplier() {
     return supplier;
   }
 
@@ -56,7 +56,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param supplier this BaseScraper's new supplier.
    */
-  void setSupplier(String supplier) {
+  public void setSupplier(String supplier) {
     this.supplier = supplier;
   }
 
@@ -65,7 +65,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's search page.
    */
-  String getSearchPage() {
+  public String getSearchPage() {
     return searchPage;
   }
 
@@ -74,7 +74,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param searchPage this BaseScraper's new search page.
    */
-  void setSearchPage(String searchPage) {
+  public void setSearchPage(String searchPage) {
     this.searchPage = searchPage;
   }
 
@@ -83,7 +83,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's product selector.
    */
-  String getProductSelector() {
+  public String getProductSelector() {
     return productSelector;
   }
 
@@ -92,7 +92,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param productSelector this BaseScraper's new product selector.
    */
-  void setProductSelector(String productSelector) {
+  public void setProductSelector(String productSelector) {
     this.productSelector = productSelector;
   }
 
@@ -101,7 +101,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's url selector.
    */
-  String getUrlSelector() {
+  public String getUrlSelector() {
     return urlSelector;
   }
 
@@ -110,7 +110,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param urlSelector this BaseScraper's new url selector.
    */
-  void setUrlSelector(String urlSelector) {
+  public void setUrlSelector(String urlSelector) {
     this.urlSelector = urlSelector;
   }
 
@@ -119,7 +119,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's brand selector.
    */
-  String getBrandSelector() {
+  public String getBrandSelector() {
     return brandSelector;
   }
 
@@ -128,7 +128,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param brandSelector this BaseScraper's new brand selector.
    */
-  void setBrandSelector(String brandSelector) {
+  public void setBrandSelector(String brandSelector) {
     this.brandSelector = brandSelector;
   }
 
@@ -137,7 +137,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's model selector.
    */
-  String getModelSelector() {
+  public String getModelSelector() {
     return modelSelector;
   }
 
@@ -146,7 +146,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param modelSelector this BaseScraper's new model selector.
    */
-  void setModelSelector(String modelSelector) {
+  public void setModelSelector(String modelSelector) {
     this.modelSelector = modelSelector;
   }
 
@@ -155,7 +155,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's colour selector.
    */
-  String getColourSelector() {
+  public String getColourSelector() {
     return colourSelector;
   }
 
@@ -164,7 +164,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param colourSelector this BaseScraper's new colour selector.
    */
-  void setColourSelector(String colourSelector) {
+  public void setColourSelector(String colourSelector) {
     this.colourSelector = colourSelector;
   }
 
@@ -173,7 +173,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's storage capacity selector.
    */
-  String getStorageCapacitySelector() {
+  public String getStorageCapacitySelector() {
     return storageCapacitySelector;
   }
 
@@ -182,7 +182,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param storageCapacitySelector this BaseScraper's new storage capacity selector.
    */
-  void setStorageCapacitySelector(String storageCapacitySelector) {
+  public void setStorageCapacitySelector(String storageCapacitySelector) {
     this.storageCapacitySelector = storageCapacitySelector;
   }
 
@@ -191,7 +191,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's image selector.
    */
-  String getImageSelector() {
+  public String getImageSelector() {
     return imageSelector;
   }
 
@@ -200,7 +200,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param imageSelector this BaseScraper's new image selector.
    */
-  void setImageSelector(String imageSelector) {
+  public void setImageSelector(String imageSelector) {
     this.imageSelector = imageSelector;
   }
 
@@ -209,7 +209,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's description selector.
    */
-  String getDescriptionSelector() {
+  public String getDescriptionSelector() {
     return descriptionSelector;
   }
 
@@ -218,7 +218,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param descriptionSelector this BaseScraper's new description selector.
    */
-  void setDescriptionSelector(String descriptionSelector) {
+  public void setDescriptionSelector(String descriptionSelector) {
     this.descriptionSelector = descriptionSelector;
   }
 
@@ -227,7 +227,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's price selector.
    */
-  String getPriceSelector() {
+  public String getPriceSelector() {
     return priceSelector;
   }
 
@@ -236,7 +236,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param priceSelector this BaseScraper's new price selector.
    */
-  void setPriceSelector(String priceSelector) {
+  public void setPriceSelector(String priceSelector) {
     this.priceSelector = priceSelector;
   }
 
@@ -245,7 +245,7 @@ abstract class BaseScraper extends Thread {
    *
    * @return this BaseScraper's next page selector.
    */
-  String getNextPageSelector() {
+  public String getNextPageSelector() {
     return nextPageSelector;
   }
 
@@ -254,7 +254,7 @@ abstract class BaseScraper extends Thread {
    *
    * @param nextPageSelector this BaseScraper's new next page selector.
    */
-  void setNextPageSelector(String nextPageSelector) {
+  public void setNextPageSelector(String nextPageSelector) {
     this.nextPageSelector = nextPageSelector;
   }
 
