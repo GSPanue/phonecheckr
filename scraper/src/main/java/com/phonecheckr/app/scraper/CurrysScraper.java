@@ -14,21 +14,6 @@ import java.util.List;
  * @author Gurdev S. Panue
  */
 public class CurrysScraper extends BaseScraper {
-  public CurrysScraper() {
-    setSupplier("Currys");
-    setSearchPage("https://www.currys.co.uk/gbuk/phones-broadband-and-sat-nav/mobile-phones-and-accessories/mobile-phones/362_3412_32041_xx_xx/1_50/brand-asc/xx-criteria.html");
-    setProductSelector("article.product");
-    setUrlSelector("header.productTitle > a");
-    setBrandSelector("header.productTitle > a > span[data-product=brand]");
-    setModelSelector("header.productTitle > a > span[data-product=name]");
-    setColourSelector("header.productTitle > a > span[data-product=name]");
-    setStorageCapacitySelector("header.productTitle > a > span[data-product=name]");
-    setImageSelector("div.swiper-slide > a");
-    setDescriptionSelector("ul.productDescription > li");
-    setPriceSelector("strong.price");
-    setNextPageSelector("ul.pagination > li > a[title=next]");
-  }
-
   /**
    * Separates the model name from the model size and colour.
    *
