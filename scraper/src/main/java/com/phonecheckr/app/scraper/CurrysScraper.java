@@ -82,7 +82,7 @@ public class CurrysScraper extends BaseScraper {
     model = new ArrayList<>(Arrays.asList(model.get(0).split("&")));
 
     // Return model name
-    return model.get(0).replaceAll("(?i)SIM FREE", "").trim();
+    return model.get(0).replaceAll("(?i)SIM FREE", "").replaceAll("\\+", " Plus").trim();
   }
 
   /**
