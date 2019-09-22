@@ -59,7 +59,7 @@ public class BuyMobilesScraper extends BaseScraper {
       String model = PRODUCT_PAGE.select(getModelSelector()).text();
 
       // Remove storage capacity from string
-      model = model.replaceAll("[0-9]+GB", "");
+      model = model.replaceAll("[0-9]+GB$", "");
 
       // Remove brand from string
       model = model.replaceAll("(?i)" + BRAND, "").trim();
@@ -108,7 +108,7 @@ public class BuyMobilesScraper extends BaseScraper {
       String model = PRODUCT_PAGE.select(getModelSelector()).text();
 
       // Remove storage capacity from string
-      model = model.replaceAll("[0-9]+GB", "");
+      model = model.replaceAll("[0-9]+GB$", "");
 
       // Return model name
       return model.replaceAll("(?i)" + BRAND, "").trim();
