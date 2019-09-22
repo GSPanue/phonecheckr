@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Scraper class Scraper
+ * Scraper class CurrysScraper
  *
  * @author Gurdev S. Panue
  */
