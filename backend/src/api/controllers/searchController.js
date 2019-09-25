@@ -9,8 +9,7 @@ const getSearch = (req, res) => {
       brands: true,
       models: true
     })
-    .where('brands.name', 'like', `%${query}%`)
-    .orWhere('models.name', 'like', `%${query}%`)
+    .whereRaw(`CONCAT(brands.name, ' ', models.name) LIKE '%${query}%'`)
     .omit([
       'id',
       'url_id',
