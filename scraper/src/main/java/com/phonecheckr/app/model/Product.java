@@ -332,7 +332,7 @@ public class Product implements Serializable {
         + "\turl_id: " + getUrlId() + ",\n"
         + "\tpage_id: " + getPageId() + ",\n"
         + "\tbrand_id: " + getBrandId() + ",\n"
-        + "\tmodel_id " + getModelId() + ",\n"
+        + "\tmodel_id: " + getModelId() + ",\n"
         + "\tsupplier_id: " + getSupplierId() + ",\n"
         + "\timage: " + getImage() + ",\n"
         + "\tdescription: " + getDescription() + ",\n"
