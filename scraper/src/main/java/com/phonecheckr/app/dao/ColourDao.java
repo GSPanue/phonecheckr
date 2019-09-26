@@ -117,6 +117,6 @@ public class ColourDao extends BaseDao<Colour, String> {
       save(colour);
     }
 
-    return  colour;
+    return colour;
   }
 }

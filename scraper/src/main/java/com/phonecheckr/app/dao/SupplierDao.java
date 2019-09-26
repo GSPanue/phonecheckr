@@ -117,6 +117,6 @@ public class SupplierDao extends BaseDao<Supplier, String> {
       save(supplier);
     }
 
-    return  supplier;
+    return supplier;
   }
 }

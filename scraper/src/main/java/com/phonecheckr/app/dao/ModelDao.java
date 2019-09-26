@@ -119,6 +119,6 @@ public class ModelDao extends BaseDao<Model, String> {
       save(model);
     }
 
-    return  model;
+    return model;
   }
 }

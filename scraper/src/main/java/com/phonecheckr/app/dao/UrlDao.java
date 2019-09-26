@@ -117,6 +117,6 @@ public class UrlDao extends BaseDao<Url, String> {
       save(url);
     }
 
-    return  url;
+    return url;
   }
 }

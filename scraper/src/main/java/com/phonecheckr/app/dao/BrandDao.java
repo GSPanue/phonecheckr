@@ -117,6 +117,6 @@ public class BrandDao extends BaseDao<Brand, String> {
       save(brand);
     }
 
-    return  brand;
+    return brand;
   }
 }

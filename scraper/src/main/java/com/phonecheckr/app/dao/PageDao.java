@@ -117,6 +117,6 @@ public class PageDao extends BaseDao<Page, String> {
       save(page);
     }
 
-    return  page;
+    return page;
   }
 }

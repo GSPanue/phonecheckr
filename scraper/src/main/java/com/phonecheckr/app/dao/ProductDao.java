@@ -124,6 +124,6 @@ public class ProductDao extends BaseDao<Product, String> {
       save(product);
     }
 
-    return  product;
+    return product;
   }
 }

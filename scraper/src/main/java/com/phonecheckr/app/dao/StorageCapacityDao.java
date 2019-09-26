@@ -117,6 +117,6 @@ public class StorageCapacityDao extends BaseDao<StorageCapacity, String> {
       save(storageCapacity);
     }
 
-    return  storageCapacity;
+    return storageCapacity;
   }
 }
