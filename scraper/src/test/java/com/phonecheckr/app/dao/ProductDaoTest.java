@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import com.phonecheckr.app.util.Hibernate;
 import com.phonecheckr.app.model.Product;
@@ -77,15 +78,6 @@ public class ProductDaoTest {
     assertNotEquals(0, product.getId());
     assertNotEquals(0, result.getId());
     assertEquals(product.getId(), result.getId());
-
-    // Reset product id and change price
-    product.setId(0);
-    product.setPrice(2);
-
-    result = productDao.find(product);
-
-    // Assert product was not found
-    assertEquals(0, result.getId());
   }
 
   @Test
@@ -100,7 +92,7 @@ public class ProductDaoTest {
 
     // Assert product was not found
     result = productDao.find("id", Integer.toString(product.getId() - 1));
-    assertNotEquals(product.getId(), result.getId());
+    assertNull(result);
   }
 
   @Test
