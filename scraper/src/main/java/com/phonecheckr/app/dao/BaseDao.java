@@ -24,19 +24,6 @@ abstract class BaseDao<E, S> {
   }
 
   /**
-   * Removes an entity.
-   *
-   * @param entity the entity.
-   */
-  public void remove(E entity) {
-    Session session = Hibernate.createSession();
-
-    session.beginTransaction();
-    session.remove(entity);
-    session.getTransaction().commit();
-  }
-
-  /**
    * Concrete method for finding an entity.
    *
    * @param entity the entity.
